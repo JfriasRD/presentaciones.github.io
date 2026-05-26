@@ -7,946 +7,913 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden;background:#070c18;font-family:'DM Sans',sans-serif;color:#e8f0fe}
+html,body{width:100%;height:100%;overflow:hidden;background:#070c18;font-family:"DM Sans",sans-serif;color:#e8f0fe}
 #pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#00c4ff,#00e676);transition:width .4s ease;z-index:200}
-#sc{position:fixed;bottom:18px;right:22px;font-family:'Syne',sans-serif;font-size:12px;color:rgba(232,240,254,.35);z-index:200;letter-spacing:2px}
-#kh{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);font-family:'Syne',sans-serif;font-size:11px;color:rgba(232,240,254,.18);z-index:200;letter-spacing:2px;pointer-events:none}
-.nb{position:fixed;top:50%;transform:translateY(-50%);width:44px;height:72px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;z-index:200;transition:all .2s;border-radius:4px}
+#sc{position:fixed;bottom:16px;right:20px;font-family:"Syne",sans-serif;font-size:11px;color:rgba(232,240,254,.35);z-index:200;letter-spacing:2px}
+#kh{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);font-family:"Syne",sans-serif;font-size:10px;color:rgba(232,240,254,.18);z-index:200;letter-spacing:2px;pointer-events:none}
+.nb{position:fixed;top:50%;transform:translateY(-50%);width:40px;height:68px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);cursor:pointer;z-index:200;transition:all .2s;border-radius:4px}
 .nb:hover{background:rgba(0,196,255,.15);border-color:rgba(0,196,255,.3)}
-.nb.pv{left:10px}.nb.nx{right:10px}
-.nb svg{width:18px;height:18px;fill:rgba(232,240,254,.5)}
+.nb.pv{left:8px}.nb.nx{right:8px}
+.nb svg{width:17px;height:17px;fill:rgba(232,240,254,.5)}
 #sw{width:100%;height:100%;position:relative}
-.sl{position:absolute;inset:0;display:flex;flex-direction:column;padding:38px 72px;opacity:0;transform:translateX(50px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;overflow:hidden}
+.sl{position:absolute;inset:0;display:flex;flex-direction:column;padding:32px 66px 28px;opacity:0;transform:translateX(50px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;overflow:hidden}
 .sl.ac{opacity:1;transform:translateX(0);pointer-events:all}
 .sl.pv{opacity:0;transform:translateX(-50px)}
-.sl::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,196,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,196,255,.022) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.sl::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(0,196,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,196,255,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
 .sl>*{position:relative;z-index:1}
 .go{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0}
 .gb{background:rgba(0,196,255,.12)}.gg{background:rgba(0,230,118,.1)}.gp{background:rgba(156,136,255,.1)}
-.tag{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#00c4ff;margin-bottom:8px}
-.h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4.8vw,64px);line-height:.93;color:#fff;margin-bottom:12px}
-.h2{font-family:'Syne',sans-serif;font-size:clamp(14px,1.8vw,20px);font-weight:700;color:#00c4ff;margin-bottom:14px}
-.body{font-size:clamp(13px,1.4vw,16px);line-height:1.7;color:rgba(232,240,254,.82)}
-.aln{width:56px;height:3px;background:linear-gradient(90deg,#00c4ff,#00e676);margin-bottom:16px;border-radius:2px}
+.tag{font-family:"Syne",sans-serif;font-size:10.5px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#00c4ff;margin-bottom:7px}
+.h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(30px,4.2vw,56px);line-height:.93;color:#fff;margin-bottom:10px}
+.h2{font-family:"Syne",sans-serif;font-size:clamp(13px,1.6vw,19px);font-weight:700;color:#00c4ff;margin-bottom:12px}
+.body{font-size:clamp(12.5px,1.32vw,15.5px);line-height:1.65;color:rgba(232,240,254,.82)}
+.aln{width:52px;height:3px;background:linear-gradient(90deg,#00c4ff,#00e676);margin-bottom:14px;border-radius:2px}
 .bat{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00c4ff,#00e676,transparent);opacity:.35}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:12px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:12px}
-.card{background:rgba(0,196,255,.06);border:1px solid rgba(0,196,255,.15);border-radius:8px;padding:18px 20px}
-.card h3{font-family:'Syne',sans-serif;font-size:clamp(13px,1.35vw,15px);font-weight:700;color:#00c4ff;margin-bottom:8px}
-.card p,.card li{font-size:clamp(12px,1.2vw,14px);line-height:1.6;color:rgba(232,240,254,.78)}
-.ul{list-style:none;margin-top:4px}
-.ul li{font-size:clamp(12.5px,1.3vw,15px);padding:6px 0 6px 18px;position:relative;color:rgba(232,240,254,.83);border-bottom:1px solid rgba(255,255,255,.04);line-height:1.45}
-.ul li::before{content:'▸';position:absolute;left:0;color:#00c4ff;font-size:10px;top:8px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px}
+.card{background:rgba(0,196,255,.06);border:1px solid rgba(0,196,255,.15);border-radius:7px;padding:15px 18px}
+.card h3{font-family:"Syne",sans-serif;font-size:clamp(12px,1.25vw,14px);font-weight:700;color:#00c4ff;margin-bottom:7px}
+.card p,.card li{font-size:clamp(11.5px,1.15vw,13.5px);line-height:1.55;color:rgba(232,240,254,.78)}
+.ul{list-style:none;margin-top:3px}
+.ul li{font-size:clamp(12px,1.25vw,14.5px);padding:5px 0 5px 17px;position:relative;color:rgba(232,240,254,.83);border-bottom:1px solid rgba(255,255,255,.04);line-height:1.42}
+.ul li::before{content:"\25B8";position:absolute;left:0;color:#00c4ff;font-size:10px;top:7px}
 .ul li strong{color:#e8f0fe}
-.sb{background:rgba(0,196,255,.07);border:1px solid rgba(0,196,255,.18);border-left:4px solid #00c4ff;border-radius:6px;padding:14px 18px}
-.sv{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.2vw,42px);color:#00c4ff;line-height:1}
-.sl2{font-size:clamp(11px,1.1vw,12.5px);color:rgba(232,240,254,.5);font-family:'Syne',sans-serif;letter-spacing:.5px;margin-top:3px}
-.hl{background:linear-gradient(135deg,rgba(0,196,255,.1),rgba(0,230,118,.06));border:1px solid rgba(0,196,255,.25);border-radius:8px;padding:16px 22px;margin-top:12px}
-.ps{display:flex;gap:0;margin-top:16px;align-items:stretch}
-.pst{flex:1;background:rgba(0,196,255,.045);border:1px solid rgba(0,196,255,.12);padding:14px 10px;position:relative;text-align:center}
-.pst:not(:last-child)::after{content:'▶';position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#00c4ff;font-size:13px;z-index:2}
-.pst .pn{font-family:'Bebas Neue',sans-serif;font-size:30px;color:rgba(0,196,255,.22);line-height:1}
-.pst .pt{font-family:'Syne',sans-serif;font-size:10.5px;font-weight:700;color:#00c4ff;margin:5px 0 4px;text-transform:uppercase;letter-spacing:.8px}
-.pst .pd{font-size:10.5px;color:rgba(232,240,254,.55);line-height:1.35}
+.sb{background:rgba(0,196,255,.07);border:1px solid rgba(0,196,255,.18);border-left:4px solid #00c4ff;border-radius:6px;padding:12px 16px}
+.sv{font-family:"Bebas Neue",sans-serif;font-size:clamp(24px,2.9vw,38px);color:#00c4ff;line-height:1}
+.sl2{font-size:clamp(10.5px,1.05vw,12px);color:rgba(232,240,254,.5);font-family:"Syne",sans-serif;letter-spacing:.4px;margin-top:3px}
+.hl{background:linear-gradient(135deg,rgba(0,196,255,.1),rgba(0,230,118,.06));border:1px solid rgba(0,196,255,.25);border-radius:7px;padding:13px 20px;margin-top:10px}
+.ps{display:flex;gap:0;margin-top:14px;align-items:stretch}
+.pst{flex:1;background:rgba(0,196,255,.045);border:1px solid rgba(0,196,255,.12);padding:13px 9px;position:relative;text-align:center}
+.pst:not(:last-child)::after{content:"\25BA";position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:#00c4ff;font-size:12px;z-index:2}
+.pst .pn{font-family:"Bebas Neue",sans-serif;font-size:27px;color:rgba(0,196,255,.22);line-height:1}
+.pst .pt{font-family:"Syne",sans-serif;font-size:10px;font-weight:700;color:#00c4ff;margin:5px 0 4px;text-transform:uppercase;letter-spacing:.8px}
+.pst .pd{font-size:10px;color:rgba(232,240,254,.55);line-height:1.32}
 .cl{list-style:none}
-.cl li{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:clamp(11.5px,1.15vw,13.5px);color:rgba(232,240,254,.83)}
+.cl li{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:clamp(11px,1.1vw,13px);color:rgba(232,240,254,.83)}
 .ld{width:11px;height:11px;border-radius:2px;flex-shrink:0}
-.lp{font-family:'Syne',sans-serif;font-weight:700;color:#fff;margin-left:auto;padding-left:10px;font-size:clamp(10.5px,1.05vw,12.5px)}
-.bc{display:flex;flex-direction:column;gap:9px;margin-top:6px}
-.br{display:flex;align-items:center;gap:9px}
-.bl{font-size:clamp(11px,1.05vw,13px);color:rgba(232,240,254,.6);width:95px;flex-shrink:0;text-align:right}
-.bt{flex:1;height:24px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
-.bf{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:9px;font-size:11.5px;font-family:'Syne',sans-serif;font-weight:700;color:#fff}
-.fd{background:rgba(255,107,53,.09);border-left:3px solid #ff6b35;border-radius:4px;padding:8px 13px;font-size:clamp(11.5px,1.15vw,13.5px);color:rgba(232,240,254,.83);margin-bottom:6px;line-height:1.45}
-.rc{background:rgba(0,230,118,.07);border-left:3px solid #00e676;border-radius:4px;padding:8px 13px;font-size:clamp(11.5px,1.15vw,13.5px);color:rgba(232,240,254,.83);margin-bottom:6px;line-height:1.45}
-.dt{width:100%;border-collapse:collapse;margin-top:8px;font-size:clamp(11px,1.1vw,13px)}
-.dt th{background:rgba(0,196,255,.14);font-family:'Syne',sans-serif;font-weight:700;padding:8px 11px;text-align:left;color:#00c4ff;border:1px solid rgba(0,196,255,.2)}
-.dt td{padding:6px 11px;border:1px solid rgba(255,255,255,.05);color:rgba(232,240,254,.78)}
+.lp{font-family:"Syne",sans-serif;font-weight:700;color:#fff;margin-left:auto;padding-left:8px;font-size:clamp(10px,1vw,12px)}
+.bc{display:flex;flex-direction:column;gap:8px;margin-top:5px}
+.br{display:flex;align-items:center;gap:8px}
+.bl{font-size:clamp(10.5px,1vw,12.5px);color:rgba(232,240,254,.6);width:90px;flex-shrink:0;text-align:right}
+.bt{flex:1;height:22px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
+.bf{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-family:"Syne",sans-serif;font-weight:700;color:#fff}
+.fd{background:rgba(255,107,53,.09);border-left:3px solid #ff6b35;border-radius:4px;padding:7px 12px;font-size:clamp(11px,1.1vw,13px);color:rgba(232,240,254,.83);margin-bottom:5px;line-height:1.42}
+.rc{background:rgba(0,230,118,.07);border-left:3px solid #00e676;border-radius:4px;padding:7px 12px;font-size:clamp(11px,1.1vw,13px);color:rgba(232,240,254,.83);margin-bottom:5px;line-height:1.42}
+.dt{width:100%;border-collapse:collapse;margin-top:7px;font-size:clamp(10.5px,1.05vw,12.5px)}
+.dt th{background:rgba(0,196,255,.14);font-family:"Syne",sans-serif;font-weight:700;padding:7px 10px;text-align:left;color:#00c4ff;border:1px solid rgba(0,196,255,.2)}
+.dt td{padding:5px 10px;border:1px solid rgba(255,255,255,.05);color:rgba(232,240,254,.78)}
 .dt tr:nth-child(even) td{background:rgba(255,255,255,.02)}
-.ib{background:linear-gradient(135deg,rgba(0,196,255,.09),rgba(0,230,118,.04));border:1px solid rgba(0,196,255,.22);border-radius:10px;padding:20px 24px;margin-bottom:12px}
-.ib .in{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,3.8vw,50px);color:#00c4ff;line-height:1}
-.ib .it{font-family:'Syne',sans-serif;font-size:clamp(12.5px,1.35vw,15px);font-weight:700;color:#fff;margin:4px 0 9px}
-.ib p{font-size:clamp(11.5px,1.2vw,14px);color:rgba(232,240,254,.75);line-height:1.6}
-.ag{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
-.ai{display:flex;align-items:center;gap:11px;background:rgba(0,196,255,.045);border:1px solid rgba(0,196,255,.1);border-radius:7px;padding:11px 15px}
-.an{font-family:'Bebas Neue',sans-serif;font-size:24px;color:rgba(0,196,255,.42);width:30px;flex-shrink:0}
-.at{font-size:clamp(12px,1.18vw,13.5px);color:rgba(232,240,254,.82);line-height:1.3}
+.ib{background:linear-gradient(135deg,rgba(0,196,255,.09),rgba(0,230,118,.04));border:1px solid rgba(0,196,255,.22);border-radius:9px;padding:17px 22px;margin-bottom:11px}
+.ib .in{font-family:"Bebas Neue",sans-serif;font-size:clamp(28px,3.4vw,46px);color:#00c4ff;line-height:1}
+.ib .it{font-family:"Syne",sans-serif;font-size:clamp(12px,1.3vw,14.5px);font-weight:700;color:#fff;margin:4px 0 8px}
+.ib p{font-size:clamp(11px,1.15vw,13.5px);color:rgba(232,240,254,.75);line-height:1.58}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.ai{display:flex;align-items:center;gap:10px;background:rgba(0,196,255,.045);border:1px solid rgba(0,196,255,.1);border-radius:6px;padding:9px 13px}
+.an{font-family:"Bebas Neue",sans-serif;font-size:22px;color:rgba(0,196,255,.4);width:28px;flex-shrink:0}
+.at{font-size:clamp(11.5px,1.12vw,13px);color:rgba(232,240,254,.82);line-height:1.28}
+.pimg{width:100%;height:180px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,.04);padding:10px}
+.pibox{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.pibox img{width:100%;height:160px;object-fit:contain}
+.pibox .pil{font-family:"Bebas Neue",sans-serif;font-size:20px;color:#00c4ff;text-align:center;letter-spacing:1px}
+.pibox .pis{font-family:"Syne",sans-serif;font-size:9.5px;color:rgba(232,240,254,.4);text-align:center;letter-spacing:1.5px;text-transform:uppercase}
 </style>
 </head>
 <body>
 <div id="pb" style="width:4.35%"></div>
 <div id="sc">01 / 23</div>
-<div id="kh">← → TECLAS DE FLECHA · CLICK EN FLECHAS LATERALES</div>
+<div id="kh">&#8592; &#8594; TECLAS DE FLECHA &middot; BOTONES LATERALES</div>
 <div class="nb pv" onclick="cs(-1)"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></div>
 <div class="nb nx" onclick="cs(1)"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
 <div id="sw">
 
-<!-- SLIDE 1 PORTADA -->
+<!-- S1 PORTADA -->
 <div class="sl ac" id="s1" style="justify-content:center;align-items:flex-start;background:radial-gradient(ellipse at 70% 50%,rgba(0,80,200,.28) 0%,transparent 55%),radial-gradient(ellipse at 15% 80%,rgba(0,180,100,.14) 0%,transparent 45%)">
-<div class="go gb" style="width:320px;height:320px;top:-120px;right:-60px"></div>
+<div class="go gb" style="width:300px;height:300px;top:-100px;right:-60px"></div>
 <div class="go gg" style="width:200px;height:200px;bottom:80px;right:180px"></div>
-<div style="margin-top:40px">
-  <div class="tag">Ministerio de Energía y Minas · Viceministerio de Innovación y Transición Energética</div>
-  <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,108px);line-height:.87;color:#fff;margin-bottom:16px">AUDITORÍAS<br><span style="color:#00c4ff">ENERGÉTICAS</span></div>
-  <div class="aln"></div>
-  <p style="font-size:clamp(14px,1.7vw,19px);color:rgba(232,240,254,.6);max-width:560px;line-height:1.65;margin-bottom:32px">Fundamentos, metodología, instrumentos y casos reales del diagnóstico del desempeño energético en edificaciones del sector público</p>
-  <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
-    <div><div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#00e676">ISO 50001</div><div style="font-size:11px;color:rgba(232,240,254,.4);font-family:'Syne',sans-serif;letter-spacing:1px">Gestión Energética</div></div>
-    <div style="width:1px;height:36px;background:rgba(255,255,255,.1)"></div>
-    <div><div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#00c4ff">ISO 50002</div><div style="font-size:11px;color:rgba(232,240,254,.4);font-family:'Syne',sans-serif;letter-spacing:1px">Auditorías Energéticas</div></div>
-    <div style="width:1px;height:36px;background:rgba(255,255,255,.1)"></div>
-    <div><div style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:#ffd166">Decreto 158-23</div><div style="font-size:11px;color:rgba(232,240,254,.4);font-family:'Syne',sans-serif;letter-spacing:1px">Marco Legal RD</div></div>
-  </div>
+<div style="margin-top:30px">
+<div class="tag">Eficiencia Energ&#233;tica &middot; Sector P&#250;blico &middot; Rep&#250;blica Dominicana</div>
+<div style="font-family:Bebas Neue,sans-serif;font-size:clamp(50px,7.8vw,106px);line-height:.87;color:#fff;margin-bottom:14px">AUDITOR&#205;AS<br><span style="color:#00c4ff">ENERG&#201;TICAS</span></div>
+<div class="aln"></div>
+<p style="font-size:clamp(13.5px,1.6vw,18px);color:rgba(232,240,254,.6);max-width:540px;line-height:1.65;margin-bottom:28px">Fundamentos, metodolog&#237;a, instrumentos y casos reales del diagn&#243;stico del desempe&#241;o energ&#233;tico en edificaciones del sector p&#250;blico</p>
+<div style="display:flex;gap:22px;flex-wrap:wrap;align-items:center">
+<div><div style="font-family:Bebas Neue,sans-serif;font-size:25px;color:#00e676">ISO 50001</div><div style="font-size:10.5px;color:rgba(232,240,254,.4);font-family:Syne,sans-serif;letter-spacing:1px">Gesti&#243;n Energ&#233;tica</div></div>
+<div style="width:1px;height:34px;background:rgba(255,255,255,.1)"></div>
+<div><div style="font-family:Bebas Neue,sans-serif;font-size:25px;color:#00c4ff">ISO 50002</div><div style="font-size:10.5px;color:rgba(232,240,254,.4);font-family:Syne,sans-serif;letter-spacing:1px">Auditor&#237;as Energ&#233;ticas</div></div>
+<div style="width:1px;height:34px;background:rgba(255,255,255,.1)"></div>
+<div><div style="font-family:Bebas Neue,sans-serif;font-size:25px;color:#ffd166">Decreto 158-23</div><div style="font-size:10.5px;color:rgba(232,240,254,.4);font-family:Syne,sans-serif;letter-spacing:1px">Marco Legal RD</div></div>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 2 AGENDA -->
+<!-- S2 AGENDA -->
 <div class="sl" id="s2">
-<div class="tag">Contenido de la Sesión</div>
+<div class="tag">Contenido de la Sesi&#243;n</div>
 <div class="h1">AGENDA</div>
 <div class="aln"></div>
 <div class="ag">
-  <div class="ai"><div class="an">01</div><div class="at">¿Qué es una Auditoría Energética?</div></div>
-  <div class="ai"><div class="an">02</div><div class="at">Importancia y Marco Normativo (Decreto 158-23)</div></div>
-  <div class="ai"><div class="an">03</div><div class="at">ISO 50001: Sistema de Gestión de la Energía</div></div>
-  <div class="ai"><div class="an">04</div><div class="at">ISO 50002: Requisitos de Auditorías Energéticas</div></div>
-  <div class="ai"><div class="an">05</div><div class="at">Tipos y Niveles de Auditoría</div></div>
-  <div class="ai"><div class="an">06</div><div class="at">Proceso y Metodología Paso a Paso</div></div>
-  <div class="ai"><div class="an">07</div><div class="at">Instrumentos de Medición: Analizador de Redes</div></div>
-  <div class="ai"><div class="an">08</div><div class="at">Instrumentos: Luxómetro y Medidor de Flujo de Aire</div></div>
-  <div class="ai"><div class="an">09</div><div class="at">Parámetros Clave y Uso Significativo de la Energía</div></div>
-  <div class="ai"><div class="an">10</div><div class="at">El Informe de Auditoría Energética</div></div>
-  <div class="ai"><div class="an">11</div><div class="at">Caso Real 1: Edificio Administrativo Educativo</div></div>
-  <div class="ai"><div class="an">12</div><div class="at">Caso Real 1: Distribución de Consumo</div></div>
-  <div class="ai"><div class="an">13</div><div class="at">Caso Real 1: Hallazgos y Recomendaciones</div></div>
-  <div class="ai"><div class="an">14</div><div class="at">Caso Real 2: Edificio Administrativo de Servicios</div></div>
-  <div class="ai"><div class="an">15</div><div class="at">Caso Real 2: Distribución y Hallazgo Crítico</div></div>
-  <div class="ai"><div class="an">16</div><div class="at">Comparativo entre Ambos Casos</div></div>
-  <div class="ai"><div class="an">17</div><div class="at">Recomendaciones Transversales</div></div>
-  <div class="ai"><div class="an">18</div><div class="at">Energía Solar Fotovoltaica como Complemento</div></div>
-  <div class="ai"><div class="an">19</div><div class="at">El Rol del Gestor Energético</div></div>
-  <div class="ai"><div class="an">20</div><div class="at">Conclusiones y Preguntas</div></div>
+<div class="ai"><div class="an">01</div><div class="at">&#191;Qu&#233; es una Auditor&#237;a Energ&#233;tica?</div></div>
+<div class="ai"><div class="an">02</div><div class="at">Importancia y Marco Normativo &mdash; Decreto 158-23</div></div>
+<div class="ai"><div class="an">03</div><div class="at">ISO 50001: Sistema de Gesti&#243;n de la Energ&#237;a</div></div>
+<div class="ai"><div class="an">04</div><div class="at">ISO 50002: Requisitos de Auditor&#237;as Energ&#233;ticas</div></div>
+<div class="ai"><div class="an">05</div><div class="at">Tipos y Niveles de Auditor&#237;a Energ&#233;tica</div></div>
+<div class="ai"><div class="an">06</div><div class="at">El Proceso Paso a Paso</div></div>
+<div class="ai"><div class="an">07</div><div class="at">Analizador de Redes Fl&#233;ctricas &mdash; Fluke 1736</div></div>
+<div class="ai"><div class="an">08</div><div class="at">Medidor de Flujo de Aire y Lux&#243;metro</div></div>
+<div class="ai"><div class="an">09</div><div class="at">Par&#225;metros Clave y Uso Significativo de la Energ&#237;a</div></div>
+<div class="ai"><div class="an">10</div><div class="at">El Informe de Auditor&#237;a Energ&#233;tica</div></div>
+<div class="ai"><div class="an">11</div><div class="at">Caso Real 1 &mdash; Datos Generales</div></div>
+<div class="ai"><div class="an">12</div><div class="at">Caso Real 1 &mdash; Distribuci&#243;n de Consumo</div></div>
+<div class="ai"><div class="an">13</div><div class="at">Caso Real 1 &mdash; Hallazgos y Recomendaciones</div></div>
+<div class="ai"><div class="an">14</div><div class="at">Caso Real 2 &mdash; Datos Generales</div></div>
+<div class="ai"><div class="an">15</div><div class="at">Caso Real 2 &mdash; Distribuci&#243;n y Hallazgo Cr&#237;tico</div></div>
+<div class="ai"><div class="an">16</div><div class="at">Comparativo entre Ambos Casos</div></div>
+<div class="ai"><div class="an">17</div><div class="at">Recomendaciones Transversales</div></div>
+<div class="ai"><div class="an">18</div><div class="at">El Gestor Energ&#233;tico (Decreto 158-23)</div></div>
+<div class="ai"><div class="an">19</div><div class="at">Energ&#237;a Solar Fotovoltaica como Complemento</div></div>
+<div class="ai"><div class="an">20</div><div class="at">Conclusiones y Preguntas</div></div>
 </div>
-<p style="color:rgba(232,240,254,.28);font-size:11px;margin-top:10px;font-family:'Syne',sans-serif;letter-spacing:2px">DURACIÓN ESTIMADA: ~55 MINUTOS · 23 DIAPOSITIVAS</p>
+<p style="color:rgba(232,240,254,.28);font-size:10.5px;margin-top:9px;font-family:Syne,sans-serif;letter-spacing:2px">DURACI&#211;N ESTIMADA: ~55 MINUTOS &middot; 23 DIAPOSITIVAS</p>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 3 DEFINICIÓN -->
+<!-- S3 DEFINICION -->
 <div class="sl" id="s3">
-<div class="go gb" style="width:270px;height:270px;top:-80px;right:0"></div>
+<div class="go gb" style="width:250px;height:250px;top:-80px;right:0"></div>
 <div class="tag">Concepto Fundamental</div>
-<div class="h1">¿QUÉ ES UNA AUDITORÍA ENERGÉTICA?</div>
+<div class="h1">&#191;QU&#201; ES UNA AUDITOR&#205;A ENERG&#201;TICA?</div>
 <div class="aln"></div>
 <div class="g2" style="align-items:start">
-  <div>
-    <div class="hl" style="margin-top:0;margin-bottom:16px">
-      <p style="font-size:clamp(13.5px,1.5vw,17px);line-height:1.7;color:#e8f0fe">
-        Una <strong style="color:#00c4ff">auditoría energética</strong> es un proceso sistemático de inspección, análisis y evaluación del uso y consumo de energía en una instalación, orientado a identificar <strong style="color:#00e676">oportunidades de mejora del desempeño energético</strong> e impulsar el uso racional, eficiente y responsable de la energía.
-      </p>
-    </div>
-    <p class="body" style="margin-bottom:13px">Es el <em>punto de partida</em> de cualquier estrategia de eficiencia energética. Sin datos precisos, no existen decisiones informadas.</p>
-    <div class="card">
-      <h3>Objetivo Central</h3>
-      <p>Determinar <strong>dónde, cuándo, cuánto y cómo</strong> se usa la energía en una edificación, para formular recomendaciones técnicas y económicamente viables que mejoren su desempeño.</p>
-    </div>
-  </div>
-  <div>
-    <div class="h2" style="margin-bottom:10px">¿Qué abarca?</div>
-    <ul class="ul">
-      <li>Sistemas de <strong>climatización</strong>, iluminación, equipos eléctricos y ofimáticos</li>
-      <li>Análisis del historial de <strong>facturación eléctrica</strong> (mínimo 1 año como línea base)</li>
-      <li>Medición de parámetros eléctricos en <strong>tiempo real</strong> con equipos especializados</li>
-      <li>Comparación entre energía <strong>facturada, medida y calculada</strong></li>
-      <li>Identificación de los <strong>Usos Significativos de la Energía (USE)</strong></li>
-      <li>Generación de un informe con hallazgos y <strong>recomendaciones priorizadas</strong></li>
-      <li>Base para implementar una <strong>política energética institucional</strong></li>
-      <li>Puede estar orientada a la certificación bajo <strong>ISO 50001</strong></li>
-    </ul>
-  </div>
+<div>
+<div class="hl" style="margin-top:0;margin-bottom:14px">
+<p style="font-size:clamp(13px,1.42vw,16.5px);line-height:1.68;color:#e8f0fe">Una <strong style="color:#00c4ff">auditor&#237;a energ&#233;tica</strong> es un proceso sistem&#225;tico de inspecci&#243;n, an&#225;lisis y evaluaci&#243;n del uso y consumo de energ&#237;a en una instalaci&#243;n, orientado a identificar <strong style="color:#00e676">oportunidades de mejora del desempe&#241;o energ&#233;tico</strong> e impulsar el uso racional, eficiente y responsable de la energ&#237;a.</p>
+</div>
+<p class="body" style="margin-bottom:12px">Es el <em>punto de partida</em> de cualquier estrategia de eficiencia energ&#233;tica. Sin datos precisos, no existen decisiones informadas.</p>
+<div class="card">
+<h3>Objetivo Central</h3>
+<p>Determinar <strong>d&#243;nde, cu&#225;ndo, cu&#225;nto y c&#243;mo</strong> se usa la energ&#237;a en una edificaci&#243;n, para formular recomendaciones t&#233;cnicas y econ&#243;micamente viables que mejoren su desempe&#241;o.</p>
+</div>
+</div>
+<div>
+<div class="h2" style="margin-bottom:9px">&#191;Qu&#233; abarca?</div>
+<ul class="ul">
+<li>Sistemas de <strong>climatizaci&#243;n</strong>, iluminaci&#243;n, equipos el&#233;ctricos y ofim&#225;ticos</li>
+<li>An&#225;lisis del historial de <strong>facturaci&#243;n el&#233;ctrica</strong> (m&#237;nimo 1 a&#241;o como l&#237;nea base)</li>
+<li>Medici&#243;n de par&#225;metros el&#233;ctricos en <strong>tiempo real</strong> con equipos especializados</li>
+<li>Comparaci&#243;n entre energ&#237;a <strong>facturada, medida y calculada</strong></li>
+<li>Identificaci&#243;n de los <strong>Usos Significativos de la Energ&#237;a (USE)</strong></li>
+<li>Informe con hallazgos y <strong>recomendaciones priorizadas</strong></li>
+<li>Base para una <strong>pol&#237;tica energ&#233;tica institucional</strong> bajo ISO 50001</li>
+<li>Cumplimiento del marco legal: <strong>Decreto 158-23</strong></li>
+</ul>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 4 IMPORTANCIA -->
+<!-- S4 IMPORTANCIA / DECRETO -->
 <div class="sl" id="s4">
-<div class="tag">Contexto y Justificación</div>
-<div class="h1">¿POR QUÉ SON NECESARIAS?</div>
+<div class="tag">Marco Normativo</div>
+<div class="h1">DECRETO 158-23: MARCO LEGAL EN LA RD</div>
 <div class="aln"></div>
 <div class="g2">
-  <div>
-    <p class="body" style="margin-bottom:14px">En la República Dominicana, el <strong style="color:#ffd166">Decreto 158-23</strong> declara la necesidad de implementar políticas de ahorro y eficiencia energética en instituciones gubernamentales. La auditoría energética es la herramienta diagnóstica que da sustento técnico a estas políticas.</p>
-    <div class="card" style="border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.06)">
-      <h3 style="color:#ffd166">Decreto 158-23 — Puntos Clave del Art. 4</h3>
-      <ul class="ul" style="margin-top:4px">
-        <li>Temperatura de confort A/C: entre <strong>22°C y 24°C</strong></li>
-        <li>Equipos nuevos de A/C: eficiencia mínima <strong>22 SEER</strong></li>
-        <li>Prohibición progresiva del refrigerante <strong>R-22</strong></li>
-        <li>Designación obligatoria de un <strong>Gestor Energético</strong></li>
-        <li>Implementación de una <strong>política energética institucional</strong></li>
-      </ul>
-    </div>
-  </div>
-  <div style="display:flex;flex-direction:column;gap:10px">
-    <div class="sb"><div class="sv">~44%</div><div class="sl2">Del consumo eléctrico en edificios de oficinas corresponde a climatización en climas tropicales</div></div>
-    <div class="sb" style="border-left-color:#00e676"><div class="sv" style="color:#00e676">30–65%</div><div class="sl2">Potencial de ahorro al modernizar equipos de A/C obsoletos (R-22 → R-32 Inverter)</div></div>
-    <div class="sb" style="border-left-color:#ffd166"><div class="sv" style="color:#ffd166;font-size:26px">ISO 50001</div><div class="sl2">El MEM-RD está certificado bajo esta norma, orientando su metodología de auditoría</div></div>
-    <div class="sb" style="border-left-color:#9c88ff"><div class="sv" style="color:#9c88ff;font-size:26px">1–5 años</div><div class="sl2">Período típico de retorno de inversión en medidas de eficiencia energética</div></div>
-  </div>
+<div>
+<p class="body" style="margin-bottom:12px">El <strong style="color:#ffd166">Decreto 158-23</strong> (13 de abril de 2023) declara de <strong>alta prioridad nacional</strong> la implementaci&#243;n de pol&#237;ticas de ahorro y eficiencia energ&#233;tica en todos los &#243;rganos de la Administraci&#243;n p&#250;blica, incluyendo organismos aut&#243;nomos y descentralizados.</p>
+<div class="card" style="border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.06);margin-bottom:10px">
+<h3 style="color:#ffd166">Art. 2 &mdash; Categor&#237;as de Consumidores</h3>
+<ul class="ul" style="margin-top:3px">
+<li><strong>Peque&#241;os:</strong> sumatoria de suministros <strong>&#8804; 225 KVA</strong></li>
+<li><strong>Grandes:</strong> sumatoria de suministros <strong>&gt; 225 KVA</strong></li>
+</ul>
+</div>
+<div class="card" style="border-color:rgba(255,209,102,.3);background:rgba(255,209,102,.06)">
+<h3 style="color:#ffd166">Art. 4 &mdash; Peque&#241;os Consumidores (puntos clave)</h3>
+<ul class="ul" style="margin-top:3px">
+<li>Temperatura A/C en horas de labores: exactamente <strong>22&#176;C</strong></li>
+<li>Iluminaci&#243;n oficinas: no menor de 300 l&#250;menes, no mayor de <strong>1,000 l&#250;menes</strong></li>
+<li>Nuevos equipos A/C: eficiencia superior a <strong>16 SEER</strong></li>
+<li>Evaluar reemplazo si usa <strong>R-22</strong> o eficiencia &lt; <strong>12 SEER</strong></li>
+<li>Nuevas luminarias: tecnolog&#237;a <strong>LED</strong> libre de mercurio</li>
+<li>Definir qu&#233; equipos funcionan <strong>fuera del horario laboral</strong></li>
+</ul>
+</div>
+</div>
+<div>
+<div class="card" style="border-color:rgba(0,196,255,.3);margin-bottom:10px">
+<h3>Art. 5 &mdash; Grandes Consumidores (adicional)</h3>
+<ul class="ul" style="margin-top:3px">
+<li>Instalar <strong>banco de capacitores</strong>: factor de potencia 0.90 &le; FP &lt; 1.00</li>
+<li>Iniciar proceso de <strong>certificaci&#243;n internacional</strong> en gesti&#243;n energ&#233;tica</li>
+<li>Meta m&#237;nima: reducci&#243;n anual del <strong>2% del consumo en kWh</strong></li>
+<li>Bombas &gt; 5 HP: instalar <strong>regulador de frecuencia autom&#225;tico</strong></li>
+</ul>
+</div>
+<div class="card" style="border-color:rgba(0,230,118,.3);background:rgba(0,230,118,.04);margin-bottom:10px">
+<h3 style="color:#00e676">Art. 9 &mdash; Energ&#237;as Renovables</h3>
+<p>Se instruye a las instituciones a desarrollar un <strong>plan para adquirir paneles solares</strong> para generaci&#243;n fotovoltaica y calentadores.</p>
+</div>
+<div class="card" style="border-color:rgba(156,136,255,.3);background:rgba(156,136,255,.04)">
+<h3 style="color:#9c88ff">Art. 10 &mdash; Campa&#241;a Nacional</h3>
+<p>Se ordena una mesa de trabajo MEM + MESCYT + MINERD para evaluar la inclusi&#243;n de eficiencia energ&#233;tica en el <strong>pensum escolar y universitario</strong>.</p>
+</div>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 5 ISO 50001 -->
+<!-- S5 ISO 50001 -->
 <div class="sl" id="s5">
-<div class="go gg" style="width:250px;height:250px;top:60px;right:80px"></div>
+<div class="go gg" style="width:240px;height:240px;top:60px;right:80px"></div>
 <div class="tag">Normativa Internacional</div>
-<div class="h1">ISO 50001: GESTIÓN DE LA ENERGÍA</div>
+<div class="h1">ISO 50001: GESTI&#211;N DE LA ENERG&#205;A</div>
 <div class="aln"></div>
 <div class="g2">
-  <div>
-    <div class="ib">
-      <div class="in">ISO 50001</div>
-      <div class="it">Sistemas de Gestión de la Energía (SGEn)</div>
-      <p>Norma internacional que establece los <strong style="color:#00c4ff">requisitos</strong> para que las organizaciones creen sistemas y procesos para mejorar su desempeño energético, incluyendo la eficiencia, el uso y el consumo de energía. Publicada en 2011, revisada en <strong style="color:#00c4ff">2018</strong>. Es aplicable a cualquier tipo de organización.</p>
-    </div>
-    <div class="hl" style="margin-top:0">
-      <p style="font-size:clamp(12.5px,1.28vw,15px);color:rgba(232,240,254,.82)">
-        El <strong style="color:#00e676">Ministerio de Energía y Minas (MEM)</strong> de la República Dominicana está certificado bajo ISO 50001, lo que orienta la metodología y el rigor de sus auditorías energéticas a instituciones del Estado.
-      </p>
-    </div>
-  </div>
-  <div>
-    <div class="h2" style="margin-bottom:12px">El Ciclo PDCA en ISO 50001</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
-      <div class="card" style="padding:15px"><h3 style="font-size:17px;margin-bottom:6px">🔵 Plan</h3><p>Política energética, objetivos, indicadores de desempeño (IDEns), línea base y planificación de acciones.</p></div>
-      <div class="card" style="padding:15px"><h3 style="font-size:17px;margin-bottom:6px">🟡 Do</h3><p>Implementación de controles operacionales y proyectos de mejora del desempeño energético.</p></div>
-      <div class="card" style="padding:15px;border-color:rgba(0,230,118,.2)"><h3 style="font-size:17px;margin-bottom:6px;color:#00e676">🟢 Check</h3><p>Monitoreo, medición, análisis y evaluación mediante <strong>auditorías energéticas</strong>.</p></div>
-      <div class="card" style="padding:15px;border-color:rgba(0,230,118,.2)"><h3 style="font-size:17px;margin-bottom:6px;color:#00e676">🔁 Act</h3><p>Revisión por la dirección, acciones correctivas y mejora continua del sistema.</p></div>
-    </div>
-  </div>
+<div>
+<div class="ib">
+<div class="in">ISO 50001</div>
+<div class="it">Sistemas de Gesti&#243;n de la Energ&#237;a (SGEn)</div>
+<p>Norma internacional que establece los <strong style="color:#00c4ff">requisitos</strong> para que las organizaciones creen sistemas y procesos para mejorar su desempe&#241;o energ&#233;tico, incluyendo eficiencia, uso y consumo de energ&#237;a. Publicada en 2011, revisada en <strong style="color:#00c4ff">2018</strong>. Aplicable a cualquier tipo de organizaci&#243;n.</p>
+</div>
+<div class="hl" style="margin-top:0">
+<p style="font-size:clamp(12px,1.22vw,14.5px);color:rgba(232,240,254,.82)">
+El <strong style="color:#00e676">Decreto 158-23 (Art. 5)</strong> exige a los grandes consumidores estatales iniciar el proceso de <strong>certificaci&#243;n internacional en gesti&#243;n energ&#233;tica</strong>, siendo la ISO 50001 el est&#225;ndar de referencia a nivel mundial.
+</p>
+</div>
+</div>
+<div>
+<div class="h2" style="margin-bottom:11px">Ciclo PDCA en ISO 50001</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="card" style="padding:13px"><h3 style="font-size:16px;margin-bottom:5px">&#128309; Plan</h3><p>Pol&#237;tica energ&#233;tica, objetivos, indicadores (IDEns), l&#237;nea base y planificaci&#243;n.</p></div>
+<div class="card" style="padding:13px"><h3 style="font-size:16px;margin-bottom:5px">&#129000; Do</h3><p>Implementaci&#243;n de controles operacionales y proyectos de mejora energ&#233;tica.</p></div>
+<div class="card" style="padding:13px;border-color:rgba(0,230,118,.2)"><h3 style="font-size:16px;margin-bottom:5px;color:#00e676">&#128994; Check</h3><p>Monitoreo, medici&#243;n, an&#225;lisis y evaluaci&#243;n mediante <strong>auditor&#237;as energ&#233;ticas</strong>.</p></div>
+<div class="card" style="padding:13px;border-color:rgba(0,230,118,.2)"><h3 style="font-size:16px;margin-bottom:5px;color:#00e676">&#128260; Act</h3><p>Revisi&#243;n gerencial, acciones correctivas y <strong>mejora continua</strong> del sistema.</p></div>
+</div>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 6 ISO 50002 -->
+<!-- S6 ISO 50002 -->
 <div class="sl" id="s6">
 <div class="tag">Normativa Internacional</div>
-<div class="h1">ISO 50002: AUDITORÍAS ENERGÉTICAS</div>
+<div class="h1">ISO 50002: AUDITOR&#205;AS ENERG&#201;TICAS</div>
 <div class="aln" style="background:linear-gradient(90deg,#00e676,#00c4ff)"></div>
 <div class="g2">
-  <div>
-    <div class="ib" style="border-color:rgba(0,230,118,.28);background:linear-gradient(135deg,rgba(0,230,118,.09),rgba(0,196,255,.04))">
-      <div class="in" style="color:#00e676">ISO 50002</div>
-      <div class="it">Auditorías Energéticas — Requisitos con orientación para su uso</div>
-      <p>Especifica los requisitos para llevar a cabo auditorías energéticas. Aplicable a todo tipo de organizaciones, independientemente del sector, tamaño o nivel de consumo. Puede aplicarse de forma independiente o como componente del SGEn (ISO 50001). Publicada en <strong style="color:#00e676">2014</strong>.</p>
-    </div>
-    <div class="card" style="border-color:rgba(0,230,118,.2)">
-      <h3 style="color:#00e676">Relación ISO 50001 ↔ ISO 50002</h3>
-      <p>La ISO 50002 es el <strong>instrumento de diagnóstico</strong> que alimenta el sistema de gestión definido por la ISO 50001. La auditoría provee los datos; el SGEn los convierte en acción sistemática y mejora continua.</p>
-    </div>
-  </div>
-  <div>
-    <div class="h2" style="color:#00e676;margin-bottom:10px">Principios Clave de la ISO 50002</div>
-    <ul class="ul">
-      <li>Análisis basado en <strong>datos medibles y verificables</strong></li>
-      <li>Alcance proporcional a la complejidad de la instalación</li>
-      <li>Auditores deben ser <strong>competentes e independientes</strong></li>
-      <li>Identifica la <strong>línea base de consumo</strong> y los Usos Significativos (USE)</li>
-      <li>Recomendaciones incluyen <strong>estimaciones de ahorro en energía y costo</strong></li>
-      <li>El informe debe ser claro, conciso y orientado a la acción</li>
-      <li>Oportunidades de mejora ordenadas <strong>por prioridad</strong></li>
-      <li>Considera factores variables que afectan el consumo (climáticos, operativos, horarios)</li>
-      <li>Debe documentar la <strong>metodología utilizada</strong> para permitir reproducibilidad</li>
-    </ul>
-  </div>
+<div>
+<div class="ib" style="border-color:rgba(0,230,118,.28);background:linear-gradient(135deg,rgba(0,230,118,.09),rgba(0,196,255,.04))">
+<div class="in" style="color:#00e676">ISO 50002</div>
+<div class="it">Auditor&#237;as Energ&#233;ticas &mdash; Requisitos con orientaci&#243;n para su uso</div>
+<p>Especifica los requisitos para llevar a cabo auditor&#237;as energ&#233;ticas. Aplicable a todo tipo de organizaciones. Puede usarse de forma independiente o como componente de un SGEn (ISO 50001). Publicada en <strong style="color:#00e676">2014</strong>.</p>
+</div>
+<div class="card" style="border-color:rgba(0,230,118,.2)">
+<h3 style="color:#00e676">Relaci&#243;n ISO 50001 &#8596; ISO 50002</h3>
+<p>La ISO 50002 es el <strong>instrumento de diagn&#243;stico</strong> que alimenta el sistema de gesti&#243;n de la ISO 50001. La auditor&#237;a provee los datos; el SGEn los convierte en acci&#243;n sistem&#225;tica y mejora continua.</p>
+</div>
+</div>
+<div>
+<div class="h2" style="color:#00e676;margin-bottom:9px">Principios Clave de la ISO 50002</div>
+<ul class="ul">
+<li>An&#225;lisis basado en <strong>datos medibles y verificables</strong></li>
+<li>Alcance proporcional a la complejidad de la instalaci&#243;n</li>
+<li>Auditores deben ser <strong>competentes e independientes</strong></li>
+<li>Identifica la <strong>l&#237;nea base de consumo</strong> y los Usos Significativos (USE)</li>
+<li>Recomendaciones incluyen <strong>estimaciones de ahorro en energ&#237;a y costo</strong></li>
+<li>Informe claro, conciso y orientado a la acci&#243;n</li>
+<li>Oportunidades ordenadas <strong>por prioridad</strong></li>
+<li>Considera factores variables: clim&#225;ticos, operativos, horarios</li>
+<li>Documenta la <strong>metodolog&#237;a utilizada</strong> para permitir reproducibilidad</li>
+</ul>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#00e676,#00c4ff,transparent)"></div>
 </div>
 
-<!-- SLIDE 7 TIPOS -->
+<!-- S7 TIPOS -->
 <div class="sl" id="s7">
-<div class="tag">Clasificación</div>
-<div class="h1">TIPOS Y NIVELES DE AUDITORÍA ENERGÉTICA</div>
+<div class="tag">Clasificaci&#243;n</div>
+<div class="h1">TIPOS Y NIVELES DE AUDITOR&#205;A ENERG&#201;TICA</div>
 <div class="aln"></div>
 <div class="g3">
-  <div class="card" style="border-color:rgba(100,200,255,.3);background:rgba(100,200,255,.05)">
-    <h3 style="font-size:clamp(14px,1.6vw,19px);margin-bottom:4px">Nivel 1</h3>
-    <div style="font-family:'Syne',sans-serif;font-size:10.5px;color:#00c4ff;letter-spacing:2px;margin-bottom:10px">DIAGNÓSTICO PRELIMINAR</div>
-    <p style="margin-bottom:11px">Revisión visual rápida y análisis de facturas. Identifica oportunidades obvias sin mediciones extensas.</p>
-    <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:10px">
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">⏱ Duración: 1–2 días</div>
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">💲 Costo: Bajo</div>
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">📋 Reporte ejecutivo breve</div>
-    </div>
-  </div>
-  <div class="card" style="border-color:rgba(0,196,255,.55);background:rgba(0,196,255,.1);box-shadow:0 0 24px rgba(0,196,255,.1)">
-    <h3 style="font-size:clamp(14px,1.6vw,19px);margin-bottom:4px">Nivel 2 ★</h3>
-    <div style="font-family:'Syne',sans-serif;font-size:10.5px;color:#00c4ff;letter-spacing:2px;margin-bottom:10px">AUDITORÍA DETALLADA</div>
-    <p style="margin-bottom:11px">Medición con instrumentos especializados, levantamiento de cargas, entrevistas. <strong style="color:#00c4ff">Tipo más común en el sector público.</strong> Los casos reales de esta sesión son de este nivel.</p>
-    <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:10px">
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">⏱ Duración: 1–2 semanas</div>
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">💲 Costo: Moderado</div>
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">📋 Informe técnico completo</div>
-    </div>
-  </div>
-  <div class="card" style="border-color:rgba(0,230,118,.28);background:rgba(0,230,118,.04)">
-    <h3 style="font-size:clamp(14px,1.6vw,19px);margin-bottom:4px">Nivel 3</h3>
-    <div style="font-family:'Syne',sans-serif;font-size:10.5px;color:#00e676;letter-spacing:2px;margin-bottom:10px">AUDITORÍA EXHAUSTIVA</div>
-    <p style="margin-bottom:11px">Análisis técnico-económico profundo con simulaciones computacionales y análisis financiero detallado para proyectos de gran inversión.</p>
-    <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:10px">
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">⏱ Duración: Semanas/meses</div>
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">💲 Costo: Alto</div>
-      <div style="font-size:11px;color:rgba(232,240,254,.4)">📋 Estudio de factibilidad</div>
-    </div>
-  </div>
+<div class="card" style="border-color:rgba(100,200,255,.3);background:rgba(100,200,255,.05)">
+<h3 style="font-size:clamp(13px,1.55vw,18px);margin-bottom:3px">Nivel 1</h3>
+<div style="font-family:Syne,sans-serif;font-size:10px;color:#00c4ff;letter-spacing:2px;margin-bottom:9px">DIAGN&#211;STICO PRELIMINAR</div>
+<p style="margin-bottom:10px">Revisi&#243;n visual r&#225;pida y an&#225;lisis de facturas. Identifica oportunidades obvias sin mediciones extensas.</p>
+<div style="border-top:1px solid rgba(255,255,255,.06);padding-top:9px">
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#9200; Duraci&#243;n: 1&ndash;2 d&#237;as</div>
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#128181; Costo: Bajo</div>
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#128203; Reporte ejecutivo breve</div>
 </div>
-<div class="hl" style="margin-top:16px">
-  <p class="body" style="font-size:clamp(12.5px,1.3vw,15px)">
-    <strong style="color:#00c4ff">En la práctica del MEM-RD:</strong> Las auditorías realizadas a instituciones gubernamentales son de <strong>Nivel 2</strong> — incluyen una semana de medición continua con analizadores de redes, levantamiento de equipos y entrevistas al personal. El producto final es un <strong>informe técnico detallado</strong> con recomendaciones priorizadas y estimaciones de ahorro en kWh y en pesos dominicanos.
-  </p>
+</div>
+<div class="card" style="border-color:rgba(0,196,255,.55);background:rgba(0,196,255,.1);box-shadow:0 0 22px rgba(0,196,255,.1)">
+<h3 style="font-size:clamp(13px,1.55vw,18px);margin-bottom:3px">Nivel 2 &#9733;</h3>
+<div style="font-family:Syne,sans-serif;font-size:10px;color:#00c4ff;letter-spacing:2px;margin-bottom:9px">AUDITOR&#205;A DETALLADA</div>
+<p style="margin-bottom:10px">Medici&#243;n con instrumentos especializados, levantamiento de cargas, entrevistas. <strong style="color:#00c4ff">Tipo m&#225;s com&#250;n en el sector p&#250;blico.</strong> Los casos reales de esta sesi&#243;n son de este nivel.</p>
+<div style="border-top:1px solid rgba(255,255,255,.06);padding-top:9px">
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#9200; Duraci&#243;n: 1&ndash;2 semanas</div>
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#128181; Costo: Moderado</div>
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#128203; Informe t&#233;cnico completo</div>
+</div>
+</div>
+<div class="card" style="border-color:rgba(0,230,118,.28);background:rgba(0,230,118,.04)">
+<h3 style="font-size:clamp(13px,1.55vw,18px);margin-bottom:3px">Nivel 3</h3>
+<div style="font-family:Syne,sans-serif;font-size:10px;color:#00e676;letter-spacing:2px;margin-bottom:9px">AUDITOR&#205;A EXHAUSTIVA</div>
+<p style="margin-bottom:10px">An&#225;lisis t&#233;cnico-econ&#243;mico profundo con simulaciones computacionales y an&#225;lisis financiero detallado para proyectos de gran inversi&#243;n.</p>
+<div style="border-top:1px solid rgba(255,255,255,.06);padding-top:9px">
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#9200; Duraci&#243;n: Semanas/meses</div>
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#128181; Costo: Alto</div>
+<div style="font-size:10.5px;color:rgba(232,240,254,.4)">&#128203; Estudio de factibilidad</div>
+</div>
+</div>
+</div>
+<div class="hl" style="margin-top:13px">
+<p class="body" style="font-size:clamp(12px,1.22vw,14.5px)">
+<strong style="color:#00c4ff">En la pr&#225;ctica:</strong> Las auditor&#237;as a instituciones gubernamentales dominicanas son t&#237;picamente de <strong>Nivel 2</strong> &mdash; incluyen una semana de medici&#243;n continua con analizadores de redes, levantamiento de equipos y entrevistas al personal. El producto final es un <strong>informe t&#233;cnico detallado</strong> con recomendaciones priorizadas y estimaciones de ahorro en kWh y en pesos dominicanos.
+</p>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 8 PROCESO -->
+<!-- S8 PROCESO -->
 <div class="sl" id="s8">
-<div class="tag">Metodología</div>
+<div class="tag">Metodolog&#237;a</div>
 <div class="h1">EL PROCESO PASO A PASO</div>
 <div class="aln"></div>
 <div class="ps">
-  <div class="pst"><div class="pn">01</div><div class="pt">Acuerdo</div><div class="pd">Reunión inicial, definición del alcance, cronograma y coordinación institucional</div></div>
-  <div class="pst"><div class="pn">02</div><div class="pt">Instalación</div><div class="pd">Colocación del analizador de redes en el punto de transferencia eléctrica (ITA/ITM)</div></div>
-  <div class="pst"><div class="pn">03</div><div class="pt">Levantamiento</div><div class="pd">Inventario de equipos, A/C y luminarias. Entrevistas sobre hábitos y horarios de uso</div></div>
-  <div class="pst"><div class="pn">04</div><div class="pt">Recolección</div><div class="pd">Retiro del analizador tras 1 semana. Obtención del historial de facturación anual</div></div>
-  <div class="pst"><div class="pn">05</div><div class="pt">Análisis</div><div class="pd">Procesamiento con Fluke Energy Analyze Plus. Cálculo de consumo por sector</div></div>
-  <div class="pst" style="border-color:rgba(0,230,118,.3)"><div class="pn" style="color:rgba(0,230,118,.3)">06</div><div class="pt" style="color:#00e676">Informe</div><div class="pd">Hallazgos, recomendaciones con ahorro estimado en kWh/año y RD$/año</div></div>
+<div class="pst"><div class="pn">01</div><div class="pt">Acuerdo</div><div class="pd">Reuni&#243;n inicial, alcance, cronograma y coordinaci&#243;n institucional</div></div>
+<div class="pst"><div class="pn">02</div><div class="pt">Instalaci&#243;n</div><div class="pd">Colocaci&#243;n del analizador de redes en el punto de transferencia el&#233;ctrica</div></div>
+<div class="pst"><div class="pn">03</div><div class="pt">Levantamiento</div><div class="pd">Inventario de equipos, A/C y luminarias. Entrevistas sobre h&#225;bitos de uso</div></div>
+<div class="pst"><div class="pn">04</div><div class="pt">Recolecta</div><div class="pd">Retiro del analizador tras 1 semana. Historial de facturaci&#243;n anual</div></div>
+<div class="pst"><div class="pn">05</div><div class="pt">An&#225;lisis</div><div class="pd">Procesamiento con software especializado. C&#225;lculo de consumo por sector</div></div>
+<div class="pst" style="border-color:rgba(0,230,118,.3)"><div class="pn" style="color:rgba(0,230,118,.3)">06</div><div class="pt" style="color:#00e676">Informe</div><div class="pd">Hallazgos, recomendaciones con ahorro en kWh/a&#241;o y RD$/a&#241;o</div></div>
 </div>
-<div class="g2" style="gap:16px;margin-top:16px">
-  <div class="card">
-    <h3>Período de Medición y Datos</h3>
-    <p>Una semana continua (7 días / 168 horas) con registros <strong style="color:#00c4ff">cada 15 minutos</strong>. El año de facturación anterior es la <strong style="color:#ffd166">línea base</strong>. Los días atípicos (feriados) se reemplazan por el promedio de días laborables normales.</p>
-  </div>
-  <div class="card">
-    <h3>Tres Fuentes de Energía Comparadas</h3>
-    <p><strong style="color:#ffd166">① Facturada</strong> por la distribuidora — referencia principal<br>
-    <strong style="color:#00c4ff">② Medida</strong> con analizador de redes — validación<br>
-    <strong style="color:#00e676">③ Calculada</strong> con datos de equipos — estimación.<br>
-    Diferencia aceptable: <strong style="color:#00c4ff">menor al 10%</strong> entre las tres fuentes.</p>
-  </div>
+<div class="g2" style="gap:16px;margin-top:14px">
+<div class="card">
+<h3>Per&#237;odo de Medici&#243;n</h3>
+<p>Una semana continua (7 d&#237;as / 168 horas) con registros <strong style="color:#00c4ff">cada 15 minutos</strong>. El historial de facturaci&#243;n del a&#241;o anterior es la <strong style="color:#ffd166">l&#237;nea base</strong>. Los d&#237;as at&#237;picos (feriados) se reemplazan por el promedio de d&#237;as laborables normales.</p>
+</div>
+<div class="card">
+<h3>Tres Fuentes de Energ&#237;a Comparadas</h3>
+<p><strong style="color:#ffd166">&#9312; Facturada</strong> por la distribuidora &mdash; referencia principal (a&#241;o base)<br>
+<strong style="color:#00c4ff">&#9313; Medida</strong> con el analizador de redes &mdash; validaci&#243;n<br>
+<strong style="color:#00e676">&#9314; Calculada</strong> con datos de equipos levantados &mdash; estimaci&#243;n.<br>
+Diferencia aceptable: <strong style="color:#00c4ff">menor al 10%</strong> entre las tres fuentes.</p>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 9 FLUKE 1736 -->
+<!-- S9 FLUKE 1736 CON FOTO REAL -->
 <div class="sl" id="s9">
-<div class="tag">Instrumentos de Medición</div>
-<div class="h1">ANALIZADOR DE REDES ELÉCTRICAS</div>
+<div class="tag">Instrumentos de Medici&#243;n</div>
+<div class="h1">ANALIZADOR DE REDES EL&#201;CTRICAS</div>
 <div class="aln"></div>
 <div class="g2" style="align-items:center">
-  <div style="display:flex;justify-content:center;align-items:center;position:relative">
-    <div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(0,196,255,.18) 0%,transparent 65%);pointer-events:none"></div>
-    <svg viewBox="0 0 200 260" width="200" xmlns="http://www.w3.org/2000/svg">
-      <rect x="18" y="8" width="164" height="242" rx="13" fill="#111828" stroke="#00c4ff" stroke-width="1.5"/>
-      <rect x="18" y="8" width="164" height="90" rx="13" fill="#e8a800"/>
-      <rect x="18" y="82" width="164" height="16" fill="#e8a800"/>
-      <rect x="28" y="16" width="144" height="64" rx="5" fill="#071a0a" stroke="#00e676" stroke-width="1"/>
-      <rect x="34" y="22" width="90" height="9" rx="3" fill="#00e676" opacity=".85"/>
-      <rect x="34" y="35" width="65" height="5" rx="2" fill="#00e676" opacity=".5"/>
-      <rect x="34" y="44" width="50" height="4" rx="2" fill="#00e676" opacity=".35"/>
-      <rect x="106" y="32" width="34" height="26" rx="3" fill="#00c4ff" opacity=".18"/>
-      <rect x="110" y="36" width="26" height="4" rx="1" fill="#00c4ff" opacity=".6"/>
-      <rect x="110" y="44" width="20" height="3" rx="1" fill="#00c4ff" opacity=".4"/>
-      <text x="34" y="73" font-family="Arial" font-weight="bold" font-size="11" fill="#111">FLUKE 1736</text>
-      <rect x="26" y="104" width="24" height="17" rx="3" fill="#1e2a40" stroke="#00c4ff" stroke-width=".6"/>
-      <rect x="56" y="104" width="24" height="17" rx="3" fill="#1e2a40" stroke="#00c4ff" stroke-width=".6"/>
-      <rect x="86" y="104" width="24" height="17" rx="3" fill="#1e2a40" stroke="#00c4ff" stroke-width=".6"/>
-      <rect x="116" y="104" width="24" height="17" rx="3" fill="#1e2a40" stroke="#00c4ff" stroke-width=".6"/>
-      <rect x="146" y="104" width="24" height="17" rx="3" fill="#1e2a40" stroke="#00c4ff" stroke-width=".6"/>
-      <line x1="38" y1="132" x2="38" y2="220" stroke="#ff4444" stroke-width="2.5" stroke-dasharray="4,2"/>
-      <line x1="68" y1="132" x2="68" y2="220" stroke="#ffd166" stroke-width="2.5" stroke-dasharray="4,2"/>
-      <line x1="98" y1="132" x2="98" y2="220" stroke="#00e676" stroke-width="2.5" stroke-dasharray="4,2"/>
-      <line x1="128" y1="132" x2="128" y2="220" stroke="#9c88ff" stroke-width="2.5" stroke-dasharray="4,2"/>
-      <line x1="158" y1="132" x2="158" y2="220" stroke="#00c4ff" stroke-width="2.5" stroke-dasharray="4,2"/>
-      <circle cx="38" cy="225" r="7" fill="#ff4444" opacity=".9"/>
-      <circle cx="68" cy="225" r="7" fill="#ffd166" opacity=".9"/>
-      <circle cx="98" cy="225" r="7" fill="#00e676" opacity=".9"/>
-      <circle cx="128" cy="225" r="7" fill="#9c88ff" opacity=".9"/>
-      <circle cx="158" cy="225" r="7" fill="#00c4ff" opacity=".9"/>
-      <text x="31" y="243" font-family="Arial" font-size="7.5" fill="#ff4444">Fase A</text>
-      <text x="61" y="243" font-family="Arial" font-size="7.5" fill="#ffd166">Fase B</text>
-      <text x="91" y="243" font-family="Arial" font-size="7.5" fill="#00e676">Fase C</text>
-      <text x="121" y="243" font-family="Arial" font-size="7.5" fill="#9c88ff">Neutro</text>
-      <text x="151" y="243" font-family="Arial" font-size="7.5" fill="#00c4ff">Tensión</text>
-      <text x="72" y="128" font-family="Arial" font-size="8" fill="rgba(232,240,254,.3)">CE  ⊕  ⚡</text>
-    </svg>
-  </div>
-  <div>
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,2.8vw,36px);color:#00c4ff;margin-bottom:3px">FLUKE 1736</div>
-    <div style="font-family:'Syne',sans-serif;font-size:11px;color:rgba(232,240,254,.45);letter-spacing:2px;margin-bottom:13px">ANALIZADOR DE REDES TRIFÁSICO — INSTRUMENTO PRINCIPAL</div>
-    <ul class="ul">
-      <li>Captura y registra automáticamente <strong>más de 500 parámetros</strong> de calidad de energía</li>
-      <li>Mide energía activa (kWh), potencia activa/reactiva/aparente, factor de potencia, THD, desequilibrio y tensión por fase</li>
-      <li>Precisión intrínseca: <strong>±(1% + 0.02%)</strong> en medición de corriente</li>
-      <li>Registros <strong>cada 15 minutos</strong> durante una semana completa (168 horas)</li>
-      <li>Se instala en el <strong>Interruptor de Transferencia (ITA o ITM)</strong>, del lado de la distribuidora</li>
-      <li>Datos procesados con software <strong>Fluke Energy Analyze Plus</strong></li>
-      <li>Opera con pinzas de corriente de alta precisión en las <strong>3 fases + neutro</strong></li>
-    </ul>
-  </div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<div class="pibox">
+<img src="https://media.fluke.com/9b84428e-d19b-410d-bd93-b108002def98_original__size.jpg" alt="Fluke 1736" style="height:200px;width:auto;object-fit:contain" onerror="this.style.display='none';document.getElementById('svg1736').style.display='block'">
+<svg id="svg1736" style="display:none" viewBox="0 0 160 220" width="120" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="5" width="140" height="210" rx="12" fill="#111828" stroke="#00c4ff" stroke-width="1.5"/><rect x="10" y="5" width="140" height="78" rx="12" fill="#e8a800"/><rect x="10" y="68" width="140" height="15" fill="#e8a800"/><rect x="20" y="12" width="120" height="56" rx="4" fill="#071a0a" stroke="#00e676" stroke-width="1"/><text x="28" y="30" font-family="Arial" font-weight="bold" font-size="10" fill="#00e676">FLUKE 1736</text><text x="28" y="46" font-family="Arial" font-size="8" fill="#00c4ff">Power Logger</text><text x="28" y="60" font-family="Arial" font-size="7" fill="#00e676">&#62;500 par&#225;metros</text></svg>
+<div class="pil">FLUKE 1736</div>
+<div class="pis">Analizador de Redes Trif&#225;sico</div>
+</div>
+</div>
+<div>
+<ul class="ul">
+<li>Captura y registra autom&#225;ticamente <strong>m&#225;s de 500 par&#225;metros</strong> de calidad de energ&#237;a</li>
+<li>Mide energ&#237;a activa (kWh), potencia activa/reactiva, factor de potencia, THD, desequilibrio y tensi&#243;n por fase</li>
+<li>Precisi&#243;n: <strong>&#177;(1% + 0.02%)</strong> en medici&#243;n de corriente</li>
+<li>Registros <strong>cada 15 minutos</strong> durante una semana completa (168 horas)</li>
+<li>Se instala en el <strong>Interruptor de Transferencia (ITA o ITM)</strong>, del lado de la distribuidora</li>
+<li>Datos procesados con software <strong>Fluke Energy Analyze Plus</strong></li>
+<li>Opera con pinzas de corriente de alta precisi&#243;n en las <strong>3 fases + neutro</strong></li>
+<li>Compatible con protocolo <strong>Fluke Connect</strong> para acceso en tiempo real</li>
+</ul>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 10 LUXOMETRO Y FLUKE 922 -->
+<!-- S10 FLUKE 922 + LM-200 FOTOS REALES -->
 <div class="sl" id="s10">
-<div class="tag">Instrumentos de Medición</div>
-<div class="h1">MEDIDOR DE FLUJO DE AIRE Y LUXÓMETRO</div>
+<div class="tag">Instrumentos de Medici&#243;n</div>
+<div class="h1">MEDIDOR DE FLUJO DE AIRE Y LUX&#211;METRO</div>
 <div class="aln"></div>
 <div class="g2" style="margin-top:8px">
-  <div class="card" style="padding:22px">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:13px">
-      <svg viewBox="0 0 80 130" width="58" xmlns="http://www.w3.org/2000/svg">
-        <rect x="8" y="4" width="58" height="90" rx="9" fill="#1a2a3a" stroke="#00c4ff" stroke-width="1.5"/>
-        <rect x="13" y="10" width="48" height="34" rx="3" fill="#071a0a" stroke="#00e676" stroke-width="1"/>
-        <text x="24" y="26" font-family="Arial" font-weight="bold" font-size="10" fill="#00e676">0 0 1 1</text>
-        <text x="18" y="38" font-family="Arial" font-size="7.5" fill="#00c4ff">725 m³/h</text>
-        <rect x="14" y="52" width="20" height="11" rx="2" fill="#1e3050" stroke="#00c4ff" stroke-width=".5"/>
-        <rect x="40" y="52" width="20" height="11" rx="2" fill="#1e3050" stroke="#00c4ff" stroke-width=".5"/>
-        <rect x="14" y="68" width="20" height="11" rx="2" fill="#1e3050" stroke="#00c4ff" stroke-width=".5"/>
-        <rect x="40" y="68" width="20" height="11" rx="2" fill="#1e3050" stroke="#00c4ff" stroke-width=".5"/>
-        <text x="13" y="102" font-family="Arial" font-weight="bold" font-size="7.5" fill="#f5b800">FLUKE</text>
-        <text x="16" y="110" font-family="Arial" font-size="7" fill="rgba(232,240,254,.4)">922</text>
-        <rect x="65" y="30" width="15" height="8" rx="3" fill="#555"/>
-        <rect x="79" y="24" width="5" height="18" rx="2" fill="#444"/>
-      </svg>
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:#00c4ff">FLUKE 922</div>
-        <div style="font-family:'Syne',sans-serif;font-size:10px;letter-spacing:2px;color:rgba(232,240,254,.4)">MEDIDOR DE FLUJO DE AIRE</div>
-      </div>
-    </div>
-    <ul class="ul">
-      <li>Mide <strong>presión, velocidad y caudal de aire</strong> en ductos de A/C</li>
-      <li>Evalúa pérdidas de presión en sistemas HVAC para diagnóstico de eficiencia operativa</li>
-      <li>Mediciones transversales en conductos para lecturas exactas del caudal real</li>
-      <li>Permite verificar que las unidades de A/C <strong>entregan el caudal de diseño</strong></li>
-      <li>Interfaz simple: mide presión, velocidad o caudal con un solo botón</li>
-    </ul>
-  </div>
-  <div class="card" style="padding:22px">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:13px">
-      <svg viewBox="0 0 80 130" width="58" xmlns="http://www.w3.org/2000/svg">
-        <rect x="4" y="4" width="56" height="82" rx="7" fill="#b31a00" stroke="#ff6b35" stroke-width="1.5"/>
-        <rect x="9" y="9" width="46" height="32" rx="3" fill="#080808" stroke="#ffd166" stroke-width="1"/>
-        <text x="17" y="24" font-family="Arial" font-weight="bold" font-size="11" fill="#ffd166">6 3 6</text>
-        <text x="13" y="36" font-family="Arial" font-size="7" fill="#00e676">LUX  LED</text>
-        <rect x="10" y="48" width="44" height="9" rx="2" fill="#8a1200" stroke="#ff6b35" stroke-width=".5"/>
-        <rect x="10" y="62" width="44" height="9" rx="2" fill="#8a1200" stroke="#ff6b35" stroke-width=".5"/>
-        <text x="11" y="79" font-family="Arial" font-weight="bold" font-size="6.5" fill="#fff">AMPROBE</text>
-        <text x="16" y="85" font-family="Arial" font-size="6" fill="rgba(255,255,255,.4)">LM-200</text>
-        <line x1="32" y1="86" x2="32" y2="108" stroke="#2a2a2a" stroke-width="3"/>
-        <ellipse cx="32" cy="115" rx="14" ry="8" fill="#111" stroke="#ffd166" stroke-width="1"/>
-        <circle cx="32" cy="115" r="5" fill="#ffd166" opacity=".4"/>
-      </svg>
-      <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:#ffd166">AMPROBE LM-200</div>
-        <div style="font-family:'Syne',sans-serif;font-size:10px;letter-spacing:2px;color:rgba(232,240,254,.4)">LUXÓMETRO · MEDIDOR DE ILUMINACIÓN</div>
-      </div>
-    </div>
-    <ul class="ul">
-      <li>Mide el nivel de iluminación en <strong>lux (lm/m²)</strong> y Foot-Candle (Fc)</li>
-      <li>Rango hasta <strong>200,000 lux</strong> — sensor y filtro de diodo de silicio</li>
-      <li>Diseñado para uso en interiores, ideal para auditorías de iluminación</li>
-      <li>Verifica cumplimiento de normas internacionales:<br>• Oficinas: <strong>300–500 lux</strong> · Pasillos: <strong>100–200 lux</strong><br>• Baños: <strong>200–300 lux</strong> · Imprenta: <strong>500–1000 lux</strong></li>
-      <li>Identifica áreas con iluminación insuficiente o excesiva</li>
-    </ul>
-  </div>
+<div class="card" style="padding:18px">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:11px">
+<img src="https://media.fluke.com/bbcbf8b9-b0b0-40bc-8392-b108002e554b_original__size.jpg" alt="Fluke 922" style="height:110px;width:auto;object-fit:contain;flex-shrink:0;border-radius:4px;background:rgba(255,255,255,.04);padding:6px" onerror="this.style.display='none'">
+<div>
+<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#00c4ff">FLUKE 922</div>
+<div style="font-family:Syne,sans-serif;font-size:9.5px;letter-spacing:2px;color:rgba(232,240,254,.4)">MEDIDOR DE FLUJO DE AIRE</div>
+</div>
+</div>
+<ul class="ul">
+<li>Mide <strong>presi&#243;n, velocidad y caudal de aire</strong> en ductos de A/C</li>
+<li>Eval&#250;a p&#233;rdidas de presi&#243;n en sistemas HVAC para diagn&#243;stico de eficiencia</li>
+<li>Mediciones transversales en conductos para lecturas exactas del caudal real</li>
+<li>Verifica que las unidades de A/C <strong>entreguen el caudal de dise&#241;o</strong></li>
+<li>Interfaz simple: presión, velocidad o caudal con <strong>un solo bot&#243;n</strong></li>
+</ul>
+</div>
+<div class="card" style="padding:18px">
+<div style="display:flex;align-items:center;gap:14px;margin-bottom:11px">
+<img src="https://amprobe.com/wp-content/uploads/2019/08/PD_LM-200LED-1.jpg" alt="Amprobe LM-200" style="height:110px;width:auto;object-fit:contain;flex-shrink:0;border-radius:4px;background:rgba(255,255,255,.04);padding:6px" onerror="this.style.display='none'">
+<div>
+<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#ffd166">AMPROBE LM-200</div>
+<div style="font-family:Syne,sans-serif;font-size:9.5px;letter-spacing:2px;color:rgba(232,240,254,.4)">LUX&#211;METRO &middot; MEDIDOR DE ILUMINACI&#211;N</div>
+</div>
+</div>
+<ul class="ul">
+<li>Mide el nivel de iluminaci&#243;n en <strong>lux (lm/m&#178;)</strong> y Foot-Candle (Fc)</li>
+<li>Rango hasta <strong>200,000 lux</strong> &mdash; sensor y filtro de diodo de silicio</li>
+<li>Dise&#241;ado para interiores, ideal para auditor&#237;as de iluminaci&#243;n</li>
+<li>Verifica cumplimiento del Decreto 158-23: <strong>300&ndash;1,000 l&#250;menes</strong> en oficinas</li>
+<li>Cable sensor de 1.5 m para mediciones c&#243;modas sin obstrucciones</li>
+</ul>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 11 PARÁMETROS Y USE -->
+<!-- S11 PARAMETROS Y USE -->
 <div class="sl" id="s11">
-<div class="tag">¿Qué se Mide y Por Qué Importa</div>
-<div class="h1">PARÁMETROS CLAVE Y USO SIGNIFICATIVO</div>
+<div class="tag">&#191;Qu&#233; se Mide y Por Qu&#233; Importa</div>
+<div class="h1">PAR&#193;METROS CLAVE Y USO SIGNIFICATIVO</div>
 <div class="aln"></div>
 <div class="g2">
-  <div>
-    <div class="h2" style="margin-bottom:10px">Parámetros Registrados</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px">
-      <div class="card" style="padding:13px"><h3>⚡ Energía</h3><p>kWh totales. Tres fuentes: facturada, medida y calculada. Base de toda comparación.</p></div>
-      <div class="card" style="padding:13px"><h3>📊 Demanda (kW)</h3><p>Perfil de potencia cada 15 min. Revela picos, carga base y el patrón típico del edificio.</p></div>
-      <div class="card" style="padding:13px"><h3>🔌 Corriente (A)</h3><p>Por cada fase. Detecta desbalances que degradan el sistema eléctrico.</p></div>
-      <div class="card" style="padding:13px"><h3>💡 Iluminación</h3><p>Lux por área. Verifica cumplimiento de normas y detecta sobre/sub iluminación.</p></div>
-    </div>
-    <div class="hl" style="margin-top:0">
-      <p style="font-size:clamp(12px,1.2vw,14.5px);color:rgba(232,240,254,.82)"><strong style="color:#ffd166">Régimen MTD-1 (RD):</strong> Las instituciones bajo <strong>Media Tensión con Demanda</strong> pagan un cargo adicional por la demanda máxima registrada en el mes, haciendo crítico el análisis y reducción de picos de potencia.</p>
-    </div>
-  </div>
-  <div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#00c4ff;font-size:11px;letter-spacing:2px;margin-bottom:10px">USO SIGNIFICATIVO DE LA ENERGÍA (USE)</div>
-    <div class="ib" style="margin-bottom:12px;padding:16px 20px">
-      <div class="in" style="font-size:28px;margin-bottom:3px">USE</div>
-      <p>Utilización de energía que representa un <strong style="color:#00c4ff">consumo sustancial</strong> o que ofrece un considerable <strong style="color:#00c4ff">potencial de mejora</strong>. Permite priorizar acciones donde el impacto es mayor. Concepto central en ISO 50001.</p>
-    </div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:rgba(232,240,254,.4);font-size:10px;letter-spacing:2px;margin-bottom:9px">DISTRIBUCIÓN TÍPICA EN OFICINAS TROPICALES</div>
-    <div class="bc">
-      <div class="br"><div class="bl">Climatización</div><div class="bt"><div class="bf" style="width:44%;background:linear-gradient(90deg,#00c4ff,#007aaa)">~44%</div></div></div>
-      <div class="br"><div class="bl">Ofimática</div><div class="bt"><div class="bf" style="width:28%;background:linear-gradient(90deg,#00e676,#007a40)">~28%</div></div></div>
-      <div class="br"><div class="bl">Eléctricos</div><div class="bt"><div class="bf" style="width:18%;background:linear-gradient(90deg,#ff6b35,#aa3300)">~18%</div></div></div>
-      <div class="br"><div class="bl">Luminaria</div><div class="bt"><div class="bf" style="width:10%;background:linear-gradient(90deg,#ffd166,#997a00)">~10%</div></div></div>
-    </div>
-  </div>
+<div>
+<div class="h2" style="margin-bottom:9px">Par&#225;metros Registrados</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+<div class="card" style="padding:12px"><h3>&#9889; Energ&#237;a (kWh)</h3><p>Consumo total. Tres fuentes: facturada, medida y calculada. Base de toda comparaci&#243;n.</p></div>
+<div class="card" style="padding:12px"><h3>&#128202; Demanda (kW)</h3><p>Perfil de potencia cada 15 min. Revela picos, carga base y patr&#243;n t&#237;pico.</p></div>
+<div class="card" style="padding:12px"><h3>&#128268; Corriente (A)</h3><p>Por cada fase. Detecta <strong>desequilibrios</strong> que degradan el sistema el&#233;ctrico.</p></div>
+<div class="card" style="padding:12px"><h3>&#128161; Iluminaci&#243;n (lux)</h3><p>Verifica cumplimiento de normas y detecta sobre/sub iluminaci&#243;n por &#225;rea.</p></div>
+</div>
+<div class="hl" style="margin-top:0">
+<p style="font-size:clamp(11.5px,1.15vw,13.5px);color:rgba(232,240,254,.82)"><strong style="color:#ffd166">R&#233;gimen MTD-1 (RD):</strong> Las instituciones bajo <strong>Media Tensi&#243;n con Demanda</strong> pagan un cargo adicional por la demanda m&#225;xima del mes, haciendo cr&#237;tico el an&#225;lisis y reducci&#243;n de picos de potencia.</p>
+</div>
+</div>
+<div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:#00c4ff;font-size:11px;letter-spacing:2px;margin-bottom:9px">USO SIGNIFICATIVO DE LA ENERG&#205;A (USE)</div>
+<div class="ib" style="margin-bottom:11px;padding:14px 18px">
+<div class="in" style="font-size:26px;margin-bottom:3px">USE</div>
+<p>Utilizaci&#243;n de energ&#237;a que representa un <strong style="color:#00c4ff">consumo sustancial</strong> o que ofrece un considerable <strong style="color:#00c4ff">potencial de mejora</strong>. Permite <strong>priorizar acciones</strong> donde el impacto es mayor. Concepto central en ISO 50001.</p>
+</div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:rgba(232,240,254,.4);font-size:10px;letter-spacing:2px;margin-bottom:8px">DISTRIBUCI&#211;N T&#205;PICA EN OFICINAS TROPICALES</div>
+<div class="bc">
+<div class="br"><div class="bl">Climatizaci&#243;n</div><div class="bt"><div class="bf" style="width:44%;background:linear-gradient(90deg,#00c4ff,#007aaa)">~44%</div></div></div>
+<div class="br"><div class="bl">Ofim&#225;tica</div><div class="bt"><div class="bf" style="width:28%;background:linear-gradient(90deg,#00e676,#007a40)">~28%</div></div></div>
+<div class="br"><div class="bl">El&#233;ctricos</div><div class="bt"><div class="bf" style="width:18%;background:linear-gradient(90deg,#ff6b35,#aa3300)">~18%</div></div></div>
+<div class="br"><div class="bl">Luminaria</div><div class="bt"><div class="bf" style="width:10%;background:linear-gradient(90deg,#ffd166,#997a00)">~10%</div></div></div>
+</div>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 12 EL INFORME -->
+<!-- S12 INFORME -->
 <div class="sl" id="s12">
 <div class="tag">Entregable Final</div>
-<div class="h1">EL INFORME DE AUDITORÍA ENERGÉTICA</div>
+<div class="h1">EL INFORME DE AUDITOR&#205;A ENERG&#201;TICA</div>
 <div class="aln"></div>
 <div class="g2" style="align-items:start">
-  <div>
-    <p class="body" style="margin-bottom:13px">El informe es el producto final de la auditoría. Debe ser técnico, claro y orientado a la acción. En el MEM-RD sigue la estructura del Viceministerio de Innovación y Transición Energética.</p>
-    <ul class="ul">
-      <li>Datos generales: institución, NIC, dirección, régimen tarifario</li>
-      <li><strong>Resumen ejecutivo</strong> con relación de consumos anualizados (3 fuentes)</li>
-      <li>Metodología, instrumentos utilizados y período de medición</li>
-      <li>Gráficas de demanda de potencia y corriente por fase (15 min)</li>
-      <li>Análisis de consumo por sector: A/C, ofimática, eléctricos, luminaria</li>
-      <li>Descripción de sistemas eléctrico, climatización e iluminación</li>
-      <li><strong>Recomendaciones</strong> con ahorro estimado en kWh/año y RD$/año</li>
-      <li>Conclusiones e implementación de política energética institucional</li>
-    </ul>
-  </div>
-  <div>
-    <div class="card" style="margin-bottom:10px">
-      <h3>Validación de la Línea Base</h3>
-      <p>Se comparan <strong>3 valores energéticos</strong>. La diferencia aceptable es <strong style="color:#00c4ff">menor al 10%</strong>. Diferencias mayores indican cambios en la instalación entre el año base y el de la auditoría (renovación de equipos, nuevas áreas, etc.).</p>
-    </div>
-    <div class="card" style="margin-bottom:10px;border-color:rgba(255,107,53,.25);background:rgba(255,107,53,.05)">
-      <h3 style="color:#ff6b35">⚠ Hallazgos</h3>
-      <p>Equipos con R-22, termostatos analógicos, desbalances de fases, cuartos eléctricos deficientes, carga base excesiva fuera de horario, ausencia de diagrama unifilar, ITM sin automatizar…</p>
-    </div>
-    <div class="card" style="border-color:rgba(0,230,118,.25);background:rgba(0,230,118,.04)">
-      <h3 style="color:#00e676">✓ Recomendaciones</h3>
-      <p>Medidas concretas con: ahorro estimado en kWh/año, ahorro en RD$/año, tipo de inversión requerida y prioridad de implementación (inmediata / corto / mediano plazo).</p>
-    </div>
-  </div>
+<div>
+<p class="body" style="margin-bottom:11px">El informe es el producto final. Debe ser t&#233;cnico, claro y orientado a la acci&#243;n. Su estructura est&#225;ndar incluye:</p>
+<ul class="ul">
+<li>Datos generales: instituci&#243;n, NIC, direcci&#243;n, r&#233;gimen tarifario</li>
+<li><strong>Resumen ejecutivo</strong> con relaci&#243;n de consumos anualizados (3 fuentes)</li>
+<li>Metodolog&#237;a, instrumentos utilizados y per&#237;odo de medici&#243;n</li>
+<li>Gr&#225;ficas de demanda de potencia y corriente por fase (15 min)</li>
+<li>An&#225;lisis de consumo por sector: A/C, ofim&#225;tica, el&#233;ctricos, luminaria</li>
+<li>Descripci&#243;n de los sistemas el&#233;ctrico, climatizaci&#243;n e iluminaci&#243;n</li>
+<li><strong>Recomendaciones</strong> con ahorro en kWh/a&#241;o y RD$/a&#241;o</li>
+<li>Conclusiones e implementaci&#243;n de pol&#237;tica energ&#233;tica</li>
+</ul>
+</div>
+<div>
+<div class="card" style="margin-bottom:9px">
+<h3>Validaci&#243;n de la L&#237;nea Base</h3>
+<p>Se comparan <strong>3 valores energ&#233;ticos</strong>. Diferencia aceptable <strong style="color:#00c4ff">&lt; 10%</strong>. Diferencias mayores indican cambios en la instalaci&#243;n entre el a&#241;o base y el de la auditor&#237;a.</p>
+</div>
+<div class="card" style="margin-bottom:9px;border-color:rgba(255,107,53,.25);background:rgba(255,107,53,.05)">
+<h3 style="color:#ff6b35">&#9888; Hallazgos</h3>
+<p>Equipos con R-22, termostatos anal&#243;gicos, desequilibrio de fases, cuartos el&#233;ctricos deficientes, carga base excesiva fuera de horario, ausencia de diagrama unifilar, ITM sin automatizar.</p>
+</div>
+<div class="card" style="border-color:rgba(0,230,118,.25);background:rgba(0,230,118,.04)">
+<h3 style="color:#00e676">&#10003; Recomendaciones</h3>
+<p>Medidas concretas con: ahorro en kWh/a&#241;o, ahorro en RD$/a&#241;o, tipo de inversi&#243;n y prioridad de implementaci&#243;n (inmediata / corto / mediano plazo).</p>
+</div>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 13 CASO 1 OVERVIEW -->
+<!-- S13 CASO 1 DATOS -->
 <div class="sl" id="s13">
-<div class="go gb" style="width:260px;height:260px;right:0;top:0"></div>
-<div class="tag">Caso Real 1 · Edificio Administrativo Educativo</div>
-<div class="h1">DATOS GENERALES — CASO 1</div>
+<div class="go gb" style="width:250px;height:250px;right:0;top:0"></div>
+<div class="tag">Caso Real 1 &middot; Edificio Administrativo Educativo</div>
+<div class="h1">DATOS GENERALES &mdash; CASO 1</div>
 <div class="aln" style="background:linear-gradient(90deg,#ffd166,#ff6b35)"></div>
 <div class="g2" style="align-items:start">
-  <div>
-    <div class="hl" style="margin-top:0;margin-bottom:13px;background:linear-gradient(135deg,rgba(255,209,102,.09),rgba(255,107,53,.04));border-color:rgba(255,209,102,.28)">
-      <p class="body" style="font-size:clamp(12.5px,1.3vw,15px)">Institución gubernamental del sector educativo. Edificio de <strong style="color:#ffd166">3 pisos</strong>, sede central, Distrito Nacional. Conectada a red de media tensión de <strong style="color:#ffd166">EDESUR</strong> bajo tarifa <strong style="color:#ffd166">MTD-1</strong>. Interruptor de Transferencia <strong style="color:#00e676">Automático (ITA)</strong>.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
-      <div class="sb" style="border-left-color:#ffd166;padding:13px"><div class="sv" style="color:#ffd166;font-size:26px">258,720</div><div class="sl2">kWh facturados año 2025</div></div>
-      <div class="sb" style="border-left-color:#ff6b35;padding:13px"><div class="sv" style="color:#ff6b35;font-size:26px">66.85 kW</div><div class="sl2">Demanda máxima registrada</div></div>
-      <div class="sb" style="border-left-color:#00c4ff;padding:13px"><div class="sv" style="font-size:26px">43</div><div class="sl2">Unidades de A/C · 94 tons totales</div></div>
-      <div class="sb" style="border-left-color:#00e676;padding:13px"><div class="sv" style="color:#00e676;font-size:26px">5.07%</div><div class="sl2">Error analizador vs. facturación</div></div>
-    </div>
-  </div>
-  <div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:rgba(232,240,254,.4);font-size:10px;letter-spacing:2px;margin-bottom:9px">PERÍODO DE MEDICIÓN · ENERO 2026</div>
-    <table class="dt">
-      <tr><th>Parámetro</th><th>Valor</th></tr>
-      <tr><td>Fecha inicio</td><td>16 enero 2026 · 09:40 a.m.</td></tr>
-      <tr><td>Fecha fin</td><td>23 enero 2026 · 09:30 a.m.</td></tr>
-      <tr><td>Consumo medido (semana)</td><td>4,244 kWh</td></tr>
-      <tr><td>Proyección mensual</td><td>18,390.67 kWh</td></tr>
-      <tr><td>Proyección anual</td><td>245,596 kWh</td></tr>
-      <tr><td>Reducción fin de semana</td><td>~52% vs. días laborales</td></tr>
-      <tr><td>Día feriado registrado</td><td>Miércoles 21 enero (Altagracia)</td></tr>
-    </table>
-    <div style="margin-top:9px;padding:8px 12px;background:rgba(255,209,102,.07);border-radius:5px;border:1px solid rgba(255,209,102,.18);font-size:11.5px;color:rgba(232,240,254,.7)">
-      <strong style="color:#ffd166">Nota:</strong> El miércoles (feriado) fue estimado como el promedio de lunes, martes, jueves y viernes para no distorsionar la proyección anual.
-    </div>
-  </div>
+<div>
+<div class="hl" style="margin-top:0;margin-bottom:11px;background:linear-gradient(135deg,rgba(255,209,102,.09),rgba(255,107,53,.04));border-color:rgba(255,209,102,.28)">
+<p class="body" style="font-size:clamp(12px,1.25vw,14.5px)">Instituci&#243;n gubernamental del sector educativo. Edificio de <strong style="color:#ffd166">3 pisos</strong>, sede central, Distrito Nacional. Red de media tensi&#243;n bajo tarifa <strong style="color:#ffd166">MTD-1</strong>. Interruptor de Transferencia <strong style="color:#00e676">Autom&#225;tico (ITA)</strong>. <strong>Peque&#241;o consumidor</strong> seg&#250;n Decreto 158-23 (transformador 150 kVA).</p>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="sb" style="border-left-color:#ffd166;padding:11px"><div class="sv" style="color:#ffd166;font-size:24px">258,720</div><div class="sl2">kWh facturados a&#241;o 2025</div></div>
+<div class="sb" style="border-left-color:#ff6b35;padding:11px"><div class="sv" style="color:#ff6b35;font-size:24px">66.85 kW</div><div class="sl2">Demanda m&#225;xima registrada</div></div>
+<div class="sb" style="border-left-color:#00c4ff;padding:11px"><div class="sv" style="font-size:24px">43</div><div class="sl2">Unidades de A/C &middot; 94 tons totales</div></div>
+<div class="sb" style="border-left-color:#00e676;padding:11px"><div class="sv" style="color:#00e676;font-size:24px">5.07%</div><div class="sl2">Error analizador vs. facturaci&#243;n</div></div>
+</div>
+</div>
+<div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:rgba(232,240,254,.4);font-size:10px;letter-spacing:2px;margin-bottom:8px">PER&#205;ODO DE MEDICI&#211;N &middot; ENERO 2026</div>
+<table class="dt">
+<tr><th>Par&#225;metro</th><th>Valor</th></tr>
+<tr><td>Fecha inicio</td><td>16 enero 2026 &middot; 09:40 a.m.</td></tr>
+<tr><td>Fecha fin</td><td>23 enero 2026 &middot; 09:30 a.m.</td></tr>
+<tr><td>Consumo medido (semana)</td><td>4,244 kWh</td></tr>
+<tr><td>Proyecci&#243;n mensual</td><td>18,390.67 kWh</td></tr>
+<tr><td>Proyecci&#243;n anual</td><td>245,596 kWh</td></tr>
+<tr><td>Reducci&#243;n fin de semana</td><td>~52% vs. d&#237;as laborales</td></tr>
+</table>
+<div style="margin-top:8px;padding:7px 11px;background:rgba(255,209,102,.07);border-radius:5px;border:1px solid rgba(255,209,102,.18);font-size:11px;color:rgba(232,240,254,.7)">
+<strong style="color:#ffd166">Nota:</strong> El mi&#233;rcoles fue feriado (21 enero). Su valor fue estimado como el promedio de lunes, martes, jueves y viernes.
+</div>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#ffd166,#ff6b35,transparent)"></div>
 </div>
 
-<!-- SLIDE 14 CASO 1 DISTRIBUCIÓN -->
+<!-- S14 CASO 1 DISTRIBUCIÓN -->
 <div class="sl" id="s14">
-<div class="tag">Caso Real 1 · Análisis de Consumo</div>
-<div class="h1">DISTRIBUCIÓN DEL CONSUMO — CASO 1</div>
+<div class="tag">Caso Real 1 &middot; An&#225;lisis de Consumo</div>
+<div class="h1">DISTRIBUCI&#211;N DEL CONSUMO &mdash; CASO 1</div>
 <div class="aln" style="background:linear-gradient(90deg,#ffd166,#ff6b35)"></div>
 <div class="g2" style="align-items:center;margin-top:6px">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
-    <div style="width:190px;height:190px;border-radius:50%;background:conic-gradient(#00c4ff 0% 43.54%,#00e676 43.54% 75.07%,#ff6b35 75.07% 90.55%,#ffd166 90.55% 100%);box-shadow:0 0 36px rgba(0,196,255,.18)"></div>
-    <ul class="cl" style="width:100%">
-      <li><div class="ld" style="background:#00c4ff"></div>Climatización<span class="lp">43.54% · 111,028 kWh/año</span></li>
-      <li><div class="ld" style="background:#00e676"></div>Ofimática<span class="lp">31.53% · 80,413 kWh/año</span></li>
-      <li><div class="ld" style="background:#ff6b35"></div>Eléctricos<span class="lp">15.48% · 39,475 kWh/año</span></li>
-      <li><div class="ld" style="background:#ffd166"></div>Luminaria<span class="lp">9.45% · 24,093 kWh/año</span></li>
-    </ul>
-  </div>
-  <div>
-    <div class="card" style="border-color:rgba(0,196,255,.28);margin-bottom:11px">
-      <h3>Sistema de Climatización — USE Principal</h3>
-      <p style="margin-bottom:8px">94 toneladas de refrigeración en <strong style="color:#00c4ff">43 unidades</strong>. Costo anual estimado: <strong style="color:#ffd166">RD$ 1,013,686</strong> (tarifa RD$ 9.13/kWh)</p>
-      <table class="dt" style="font-size:11.5px">
-        <tr><th>Refrigerante</th><th>Uds.</th><th>Tons</th><th>costo/año (RD$)</th></tr>
-        <tr><td>R-410A</td><td>41</td><td>90</td><td>938,767</td></tr>
-        <tr><td style="color:#ff6b35">R-22 ⚠</td><td style="color:#ff6b35">2</td><td>4</td><td style="color:#ff6b35">74,919</td></tr>
-        <tr style="background:rgba(0,196,255,.08)"><td><strong>TOTAL</strong></td><td>43</td><td>94</td><td><strong>1,013,686</strong></td></tr>
-      </table>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
-      <div class="sb" style="padding:12px"><div class="sv" style="font-size:20px">RD$ 9.13</div><div class="sl2">Tarifa kWh (MTD-1 · EDESUR)</div></div>
-      <div class="sb" style="border-left-color:#ff6b35;padding:12px"><div class="sv" style="font-size:20px;color:#ff6b35">R-22 ⚠</div><div class="sl2">Refrigerante prohibido — debe sustituirse</div></div>
-    </div>
-  </div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:14px">
+<div style="width:185px;height:185px;border-radius:50%;background:conic-gradient(#00c4ff 0% 43.54%,#00e676 43.54% 75.07%,#ff6b35 75.07% 90.55%,#ffd166 90.55% 100%);box-shadow:0 0 32px rgba(0,196,255,.18)"></div>
+<ul class="cl" style="width:100%">
+<li><div class="ld" style="background:#00c4ff"></div>Climatizaci&#243;n<span class="lp">43.54% &middot; 111,028 kWh/a&#241;o</span></li>
+<li><div class="ld" style="background:#00e676"></div>Ofim&#225;tica<span class="lp">31.53% &middot; 80,413 kWh/a&#241;o</span></li>
+<li><div class="ld" style="background:#ff6b35"></div>El&#233;ctricos<span class="lp">15.48% &middot; 39,475 kWh/a&#241;o</span></li>
+<li><div class="ld" style="background:#ffd166"></div>Luminaria<span class="lp">9.45% &middot; 24,093 kWh/a&#241;o</span></li>
+</ul>
+</div>
+<div>
+<div class="card" style="border-color:rgba(0,196,255,.28);margin-bottom:10px">
+<h3>Sistema de Climatizaci&#243;n &mdash; USE Principal</h3>
+<p style="margin-bottom:7px">94 tons en <strong style="color:#00c4ff">43 unidades</strong>. Costo anual estimado: <strong style="color:#ffd166">RD$ 1,013,686</strong> (tarifa RD$ 9.13/kWh)</p>
+<table class="dt" style="font-size:11px">
+<tr><th>Refrigerante</th><th>Uds.</th><th>Tons</th><th>Costo/a&#241;o (RD$)</th></tr>
+<tr><td>R-410A</td><td>41</td><td>90</td><td>938,767</td></tr>
+<tr><td style="color:#ff6b35">R-22 &#9888;</td><td style="color:#ff6b35">2</td><td>4</td><td style="color:#ff6b35">74,919</td></tr>
+<tr style="background:rgba(0,196,255,.08)"><td><strong>TOTAL</strong></td><td>43</td><td>94</td><td><strong>1,013,686</strong></td></tr>
+</table>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="sb" style="padding:11px"><div class="sv" style="font-size:18px">RD$ 9.13</div><div class="sl2">Tarifa kWh (MTD-1)</div></div>
+<div class="sb" style="border-left-color:#ff6b35;padding:11px"><div class="sv" style="font-size:18px;color:#ff6b35">R-22 &#9888;</div><div class="sl2">Refrigerante a sustituir (Decreto 158-23)</div></div>
+</div>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#ffd166,#ff6b35,transparent)"></div>
 </div>
 
-<!-- SLIDE 15 CASO 1 HALLAZGOS -->
+<!-- S15 CASO 1 HALLAZGOS -->
 <div class="sl" id="s15">
-<div class="tag">Caso Real 1 · Hallazgos y Recomendaciones</div>
-<div class="h1">¿QUÉ SE ENCONTRÓ Y QUÉ SE RECOMENDÓ?</div>
+<div class="tag">Caso Real 1 &middot; Hallazgos y Recomendaciones</div>
+<div class="h1">&#191;QU&#201; SE ENCONTR&#211; Y QU&#201; SE RECOMEND&#211;?</div>
 <div class="aln" style="background:linear-gradient(90deg,#ffd166,#ff6b35)"></div>
-<div class="g2" style="margin-top:8px">
-  <div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#ff6b35;font-size:11px;letter-spacing:2px;margin-bottom:9px">⚠ HALLAZGOS</div>
-    <div class="fd">2 unidades de A/C con <strong>R-22</strong> — prohibido por el Protocolo de Montreal. Alto consumo: 2,051 kWh/tonelada instalada vs. 719 kWh/ton de un R-32 Inverter</div>
-    <div class="fd">Mayoría de termostatos son <strong>digitales no programables o analógicos</strong> — cualquier empleado puede ajustar temperatura sin restricción</div>
-    <div class="fd">Consumo significativo en fines de semana (~390 kWh/día = 52% de un día laboral) — <strong>equipos funcionando sin personal</strong></div>
-    <div class="fd">Cuarto eléctrico con <strong>tapas faltantes</strong> en equipos y sin iluminación adecuada — riesgo de seguridad</div>
-    <div class="fd">No existe <strong>diagrama unifilar actualizado</strong> del sistema eléctrico</div>
-    <div class="fd">Luminarias <strong>fluorescentes</strong> aún presentes en almacén y Servicios Generales</div>
-  </div>
-  <div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#00e676;font-size:11px;letter-spacing:2px;margin-bottom:9px">✓ RECOMENDACIONES</div>
-    <div class="rc">Reemplazar 2 unidades R-22 por <strong>R-32 Inverter (≥22 SEER)</strong>. Ahorro: <strong style="color:#00e676">65%</strong> en consumo de esas unidades = <strong>RD$ 48,632/año</strong></div>
-    <div class="rc">Todos los termostatos deben ser <strong>digitales programables</strong>. Solo el Gestor Energético los ajusta. Temperatura: 22°C–24°C</div>
-    <div class="rc">Política de <strong>apagado fuera del horario laboral</strong>. Inspección del edificio antes de salir. Abanicos para personal con horario extendido</div>
-    <div class="rc">Sistema solar fotovoltaico: <strong>150 kW inversores + 190 kWp</strong> en módulos monocristalinos (≥22% ef., ≥550W/panel)</div>
-    <div class="rc">Designar <strong>Gestor Energético</strong>. Elaborar diagrama unifilar. Normalizar cuarto eléctrico. Sustituir fluorescentes por LED</div>
-  </div>
+<div class="g2" style="margin-top:7px">
+<div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:#ff6b35;font-size:10.5px;letter-spacing:2px;margin-bottom:8px">&#9888; HALLAZGOS</div>
+<div class="fd">2 unidades de A/C con <strong>R-22</strong> &mdash; prohibido por el Protocolo de Montreal. Alto consumo: 2,051 kWh/ton instalada vs. 719 kWh/ton de un R-32 Inverter</div>
+<div class="fd">La mayor&#237;a de termostatos son <strong>digitales no programables o anal&#243;gicos</strong> &mdash; cualquier empleado puede ajustar temperatura sin restricci&#243;n</div>
+<div class="fd">Consumo significativo en fines de semana (~390 kWh/d&#237;a = 52% de un d&#237;a laboral) &mdash; <strong>equipos funcionando sin personal</strong></div>
+<div class="fd">Cuarto el&#233;ctrico con <strong>tapas faltantes</strong> y sin iluminaci&#243;n adecuada &mdash; riesgo de seguridad</div>
+<div class="fd">No existe <strong>diagrama unifilar actualizado</strong> del sistema el&#233;ctrico</div>
+<div class="fd">Luminarias <strong>fluorescentes</strong> a&#250;n presentes en almac&#233;n y Servicios Generales</div>
+</div>
+<div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:#00e676;font-size:10.5px;letter-spacing:2px;margin-bottom:8px">&#10003; RECOMENDACIONES</div>
+<div class="rc">Reemplazar 2 unidades R-22 por <strong>equipos Inverter (&gt;16 SEER, Decreto 158-23)</strong>. Con R-32 el ahorro potencial es del <strong>65%</strong> en esas unidades = <strong>RD$ 48,632/a&#241;o</strong></div>
+<div class="rc">Todos los termostatos: <strong>digitales programables</strong>. Solo personal autorizado los ajusta. Temperatura: <strong>22&#176;C</strong> (Art. 4 Decreto 158-23)</div>
+<div class="rc">Pol&#237;tica de <strong>apagado fuera del horario laboral</strong>. Inspecci&#243;n antes de salir del edificio. Abanicos para personal con horario extendido</div>
+<div class="rc">Sistema solar fotovoltaico: <strong>150 kW inversores + 190 kWp</strong> en m&#243;dulos monocristalinos (&#8805;22% ef., &#8805;550W/panel)</div>
+<div class="rc">Designar <strong>Gestor Energ&#233;tico</strong>. Elaborar diagrama unifilar. Normalizar cuarto el&#233;ctrico. Sustituir fluorescentes por LED</div>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#ffd166,#ff6b35,transparent)"></div>
 </div>
 
-<!-- SLIDE 16 CASO 2 OVERVIEW -->
+<!-- S16 CASO 2 DATOS -->
 <div class="sl" id="s16">
-<div class="go gp" style="width:260px;height:260px;right:0;top:80px"></div>
-<div class="tag">Caso Real 2 · Edificio Administrativo de Servicios Sociales</div>
-<div class="h1">DATOS GENERALES — CASO 2</div>
+<div class="go gp" style="width:250px;height:250px;right:0;top:80px"></div>
+<div class="tag">Caso Real 2 &middot; Edificio Administrativo de Servicios Sociales</div>
+<div class="h1">DATOS GENERALES &mdash; CASO 2</div>
 <div class="aln" style="background:linear-gradient(90deg,#9c88ff,#00c4ff)"></div>
 <div class="g2" style="align-items:start">
-  <div>
-    <div class="hl" style="margin-top:0;margin-bottom:13px;background:linear-gradient(135deg,rgba(156,136,255,.09),rgba(0,196,255,.04));border-color:rgba(156,136,255,.25)">
-      <p class="body" style="font-size:clamp(12.5px,1.3vw,15px)">Institución gubernamental del área de servicios sociales. Edificio de <strong style="color:#9c88ff">2 pisos</strong>, sede central, Distrito Nacional. Conectada a red de media tensión de <strong style="color:#9c88ff">EDEESTE</strong> bajo tarifa <strong style="color:#9c88ff">MTD-1</strong>. Cuenta con Interruptor de Transferencia <strong style="color:#ff6b35">Manual (ITM)</strong> — hallazgo a corregir.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
-      <div class="sb" style="border-left-color:#9c88ff;padding:13px"><div class="sv" style="color:#9c88ff;font-size:26px">132,720</div><div class="sl2">kWh facturados año 2025</div></div>
-      <div class="sb" style="border-left-color:#ff6b35;padding:13px"><div class="sv" style="color:#ff6b35;font-size:26px">36.38 kW</div><div class="sl2">Demanda máxima registrada</div></div>
-      <div class="sb" style="border-left-color:#00c4ff;padding:13px"><div class="sv" style="font-size:26px">18</div><div class="sl2">Unidades de A/C · 54.5 tons</div></div>
-      <div class="sb" style="border-left-color:#ff6b35;padding:13px"><div class="sv" style="color:#ff6b35;font-size:24px">&gt;40%</div><div class="sl2">Desbalance de fases detectado ⚠</div></div>
-    </div>
-  </div>
-  <div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:rgba(232,240,254,.4);font-size:10px;letter-spacing:2px;margin-bottom:9px">PERÍODO DE MEDICIÓN · FEBRERO 2026</div>
-    <table class="dt">
-      <tr><th>Parámetro</th><th>Valor</th></tr>
-      <tr><td>Fecha inicio</td><td>16 febrero 2026 · 09:45 a.m.</td></tr>
-      <tr><td>Fecha fin</td><td>23 febrero 2026 · 09:40 a.m.</td></tr>
-      <tr><td>Consumo medido (semana)</td><td>2,063.80 kWh</td></tr>
-      <tr><td>Proyección mensual</td><td>8,943.13 kWh</td></tr>
-      <tr><td>Proyección anual</td><td>107,317 kWh</td></tr>
-      <tr><td>Reducción fin de semana</td><td>~60% vs. días laborales</td></tr>
-      <tr><td>Diferencia vs. facturación</td><td>-19.14% (renovación de equipos)</td></tr>
-    </table>
-    <div style="margin-top:9px;padding:8px 12px;background:rgba(156,136,255,.07);border-radius:5px;border:1px solid rgba(156,136,255,.18);font-size:11.5px;color:rgba(232,240,254,.7)">
-      <strong style="color:#9c88ff">Diferencia explicada:</strong> La institución renovó equipos entre 2025 y 2026, reduciendo el consumo real respecto al histórico facturado.
-    </div>
-  </div>
+<div>
+<div class="hl" style="margin-top:0;margin-bottom:11px;background:linear-gradient(135deg,rgba(156,136,255,.09),rgba(0,196,255,.04));border-color:rgba(156,136,255,.25)">
+<p class="body" style="font-size:clamp(12px,1.25vw,14.5px)">Instituci&#243;n gubernamental del &#225;rea de servicios sociales. Edificio de <strong style="color:#9c88ff">2 pisos</strong>, sede central, Distrito Nacional. Red de media tensi&#243;n bajo tarifa <strong style="color:#9c88ff">MTD-1</strong>. Cuenta con Interruptor de Transferencia <strong style="color:#ff6b35">Manual (ITM)</strong> &mdash; hallazgo a corregir. <strong>Peque&#241;o consumidor</strong> (transformador 112.5 kVA).</p>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div class="sb" style="border-left-color:#9c88ff;padding:11px"><div class="sv" style="color:#9c88ff;font-size:24px">132,720</div><div class="sl2">kWh facturados a&#241;o 2025</div></div>
+<div class="sb" style="border-left-color:#ff6b35;padding:11px"><div class="sv" style="color:#ff6b35;font-size:24px">36.38 kW</div><div class="sl2">Demanda m&#225;xima registrada</div></div>
+<div class="sb" style="border-left-color:#00c4ff;padding:11px"><div class="sv" style="font-size:24px">18</div><div class="sl2">Unidades de A/C &middot; 54.5 tons</div></div>
+<div class="sb" style="border-left-color:#ff6b35;padding:11px"><div class="sv" style="color:#ff6b35;font-size:22px">&gt;40%</div><div class="sl2">Desequilibrio de fases detectado &#9888;</div></div>
+</div>
+</div>
+<div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:rgba(232,240,254,.4);font-size:10px;letter-spacing:2px;margin-bottom:8px">PER&#205;ODO DE MEDICI&#211;N &middot; FEBRERO 2026</div>
+<table class="dt">
+<tr><th>Par&#225;metro</th><th>Valor</th></tr>
+<tr><td>Fecha inicio</td><td>16 febrero 2026 &middot; 09:45 a.m.</td></tr>
+<tr><td>Fecha fin</td><td>23 febrero 2026 &middot; 09:40 a.m.</td></tr>
+<tr><td>Consumo medido (semana)</td><td>2,063.80 kWh</td></tr>
+<tr><td>Proyecci&#243;n mensual</td><td>8,943.13 kWh</td></tr>
+<tr><td>Proyecci&#243;n anual</td><td>107,317 kWh</td></tr>
+<tr><td>Reducci&#243;n fin de semana</td><td>~60% vs. d&#237;as laborales</td></tr>
+<tr><td>Diferencia vs. facturaci&#243;n</td><td>-19.14% (renovaci&#243;n de equipos)</td></tr>
+</table>
+<div style="margin-top:8px;padding:7px 11px;background:rgba(156,136,255,.07);border-radius:5px;border:1px solid rgba(156,136,255,.18);font-size:11px;color:rgba(232,240,254,.7)">
+<strong style="color:#9c88ff">Diferencia explicada:</strong> La instituci&#243;n renov&#243; equipos entre 2025&ndash;2026, reduciendo el consumo real respecto al hist&#243;rico facturado.
+</div>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#9c88ff,#00c4ff,transparent)"></div>
 </div>
 
-<!-- SLIDE 17 CASO 2 DISTRIBUCIÓN + DESBALANCE -->
+<!-- S17 CASO 2 DISTRIBUCIÓN + DESEQUILIBRIO -->
 <div class="sl" id="s17">
-<div class="tag">Caso Real 2 · Distribución y Hallazgo Crítico</div>
-<div class="h1">DISTRIBUCIÓN Y DESBALANCE DE FASES</div>
+<div class="tag">Caso Real 2 &middot; Distribuci&#243;n y Hallazgo Cr&#237;tico</div>
+<div class="h1">DISTRIBUCI&#211;N Y DESEQUILIBRIO DE FASES</div>
 <div class="aln" style="background:linear-gradient(90deg,#9c88ff,#00c4ff)"></div>
 <div class="g2" style="align-items:start;margin-top:6px">
-  <div>
-    <div style="display:flex;align-items:center;gap:18px;margin-bottom:12px">
-      <div style="width:148px;height:148px;border-radius:50%;flex-shrink:0;background:conic-gradient(#00c4ff 0% 44.13%,#00e676 44.13% 68.43%,#ff6b35 68.43% 87.95%,#ffd166 87.95% 100%);box-shadow:0 0 28px rgba(0,196,255,.18)"></div>
-      <ul class="cl">
-        <li><div class="ld" style="background:#00c4ff"></div>Climatización<span class="lp">44.13%</span></li>
-        <li><div class="ld" style="background:#00e676"></div>Ofimática<span class="lp">24.30%</span></li>
-        <li><div class="ld" style="background:#ff6b35"></div>Eléctricos<span class="lp">19.52%</span></li>
-        <li><div class="ld" style="background:#ffd166"></div>Luminaria<span class="lp">12.04%</span></li>
-      </ul>
-    </div>
-    <table class="dt" style="font-size:11.5px">
-      <tr><th>Refrigerante</th><th>Uds.</th><th>Tons</th><th>kWh/año</th><th>Costo RD$</th></tr>
-      <tr><td>R-410A</td><td>14</td><td>48.5</td><td>43,617</td><td>400,840</td></tr>
-      <tr><td>R-32 ✓</td><td>3</td><td>4.5</td><td>3,109</td><td>28,576</td></tr>
-      <tr><td style="color:#ff6b35">R-22 ⚠</td><td style="color:#ff6b35">1</td><td>1.5</td><td style="color:#ff6b35">1,961</td><td style="color:#ff6b35">18,021</td></tr>
-      <tr style="background:rgba(0,196,255,.08)"><td><strong>TOTAL</strong></td><td>18</td><td>54.5</td><td><strong>48,687</strong></td><td><strong>447,437</strong></td></tr>
-    </table>
-  </div>
-  <div>
-    <div style="font-family:'Syne',sans-serif;font-weight:700;color:#ff6b35;font-size:11px;letter-spacing:2px;margin-bottom:9px">⚠ HALLAZGO CRÍTICO: DESBALANCE DE FASES</div>
-    <div class="fd" style="background:rgba(255,107,53,.12);border-color:#ff6b35;margin-bottom:11px">
-      <strong style="color:#ff6b35">Fase B: ~147 A · Fase C: ~60 A</strong> en los mismos intervalos de alta demanda. Desbalance estimado <strong style="color:#ff6b35">&gt;40%</strong> respecto a la corriente promedio del sistema (~100–105 A).
-    </div>
-    <div style="font-size:12.5px;color:rgba(232,240,254,.6);margin-bottom:8px">Consecuencias del desbalance de fases:</div>
-    <ul class="ul" style="margin-bottom:11px">
-      <li style="font-size:12.5px">Sobrecalentamiento en conductores de la Fase B</li>
-      <li style="font-size:12.5px">Incremento de pérdidas eléctricas y costos operativos</li>
-      <li style="font-size:12.5px">Reducción de la vida útil de equipos conectados</li>
-      <li style="font-size:12.5px">Disminución de la eficiencia general del sistema</li>
-    </ul>
-    <div class="rc">Estudio técnico de <strong>balance de cargas</strong> en el panel principal. Redistribución de cargas monofásicas entre las 3 fases</div>
-    <div class="rc">Sustituir el <strong>ITM (Manual) por ITA (Automático)</strong> con arranque automatizado del generador de emergencia</div>
-  </div>
+<div>
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:11px">
+<div style="width:144px;height:144px;border-radius:50%;flex-shrink:0;background:conic-gradient(#00c4ff 0% 44.13%,#00e676 44.13% 68.43%,#ff6b35 68.43% 87.95%,#ffd166 87.95% 100%);box-shadow:0 0 26px rgba(0,196,255,.18)"></div>
+<ul class="cl">
+<li><div class="ld" style="background:#00c4ff"></div>Climatizaci&#243;n<span class="lp">44.13%</span></li>
+<li><div class="ld" style="background:#00e676"></div>Ofim&#225;tica<span class="lp">24.30%</span></li>
+<li><div class="ld" style="background:#ff6b35"></div>El&#233;ctricos<span class="lp">19.52%</span></li>
+<li><div class="ld" style="background:#ffd166"></div>Luminaria<span class="lp">12.04%</span></li>
+</ul>
+</div>
+<table class="dt" style="font-size:11px">
+<tr><th>Refrigerante</th><th>Uds.</th><th>Tons</th><th>kWh/a&#241;o</th><th>Costo RD$</th></tr>
+<tr><td>R-410A</td><td>14</td><td>48.5</td><td>43,617</td><td>400,840</td></tr>
+<tr><td>R-32 &#10003;</td><td>3</td><td>4.5</td><td>3,109</td><td>28,576</td></tr>
+<tr><td style="color:#ff6b35">R-22 &#9888;</td><td style="color:#ff6b35">1</td><td>1.5</td><td style="color:#ff6b35">1,961</td><td style="color:#ff6b35">18,021</td></tr>
+<tr style="background:rgba(0,196,255,.08)"><td><strong>TOTAL</strong></td><td>18</td><td>54.5</td><td><strong>48,687</strong></td><td><strong>447,437</strong></td></tr>
+</table>
+</div>
+<div>
+<div style="font-family:Syne,sans-serif;font-weight:700;color:#ff6b35;font-size:10.5px;letter-spacing:2px;margin-bottom:8px">&#9888; HALLAZGO CR&#205;TICO: DESEQUILIBRIO DE FASES</div>
+<div class="fd" style="background:rgba(255,107,53,.12);border-color:#ff6b35;margin-bottom:10px">
+<strong style="color:#ff6b35">Fase B: ~147 A &middot; Fase C: ~60 A</strong> en los mismos intervalos de alta demanda. Desequilibrio estimado <strong style="color:#ff6b35">&gt;40%</strong> respecto a la corriente promedio del sistema (~100&ndash;105 A).
+</div>
+<div style="font-size:12px;color:rgba(232,240,254,.6);margin-bottom:7px">Consecuencias del desequilibrio:</div>
+<ul class="ul" style="margin-bottom:10px">
+<li style="font-size:12px">Sobrecalentamiento en conductores de la Fase B</li>
+<li style="font-size:12px">Incremento de p&#233;rdidas el&#233;ctricas y costos operativos</li>
+<li style="font-size:12px">Reducci&#243;n de vida &#250;til de equipos conectados</li>
+<li style="font-size:12px">Disminuci&#243;n de la eficiencia general del sistema</li>
+</ul>
+<div class="rc">Estudio t&#233;cnico de <strong>balance de cargas</strong> en el panel principal. Redistribuci&#243;n de cargas monof&#225;sicas entre las 3 fases</div>
+<div class="rc">Sustituir el <strong>ITM (Manual) por ITA (Autom&#225;tico)</strong> con arranque automatizado del generador de emergencia</div>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#9c88ff,#00c4ff,transparent)"></div>
 </div>
 
-<!-- SLIDE 18 COMPARATIVO -->
+<!-- S18 COMPARATIVO -->
 <div class="sl" id="s18">
-<div class="tag">Análisis Comparativo</div>
-<div class="h1">COMPARACIÓN ENTRE AMBOS CASOS</div>
+<div class="tag">An&#225;lisis Comparativo</div>
+<div class="h1">COMPARACI&#211;N ENTRE AMBOS CASOS</div>
 <div class="aln"></div>
-<table class="dt" style="margin-top:6px">
-  <tr><th>Parámetro</th><th style="color:#ffd166">Caso 1 · Sector Educativo</th><th style="color:#9c88ff">Caso 2 · Sector Servicios</th></tr>
-  <tr><td>Consumo anual facturado</td><td style="color:#ffd166">258,720 kWh</td><td style="color:#9c88ff">132,720 kWh</td></tr>
-  <tr><td>Demanda máxima registrada</td><td>66.85 kW</td><td>36.38 kW</td></tr>
-  <tr><td>% Climatización del consumo</td><td>43.54%</td><td>44.13%</td></tr>
-  <tr><td>% Ofimática del consumo</td><td>31.53%</td><td>24.30%</td></tr>
-  <tr><td>Unidades de A/C instaladas</td><td>43 uds · 94 tons</td><td>18 uds · 54.5 tons</td></tr>
-  <tr><td>Unidades con R-22 (prohibido)</td><td style="color:#ff6b35">2 uds · 4 tons ⚠</td><td style="color:#ff6b35">1 ud · 1.5 tons ⚠</td></tr>
-  <tr><td>Desbalance de fases</td><td style="color:#00e676">No significativo ✓</td><td style="color:#ff6b35">&gt;40% — requiere corrección ⚠</td></tr>
-  <tr><td>Sistema de transferencia</td><td style="color:#00e676">ITA (Automático) ✓</td><td style="color:#ff6b35">ITM (Manual) — debe modernizarse</td></tr>
-  <tr><td>Luminaria</td><td>Mayoría LED · algunas fluorescentes</td><td style="color:#00e676">100% LED ✓</td></tr>
-  <tr><td>Diagrama unifilar</td><td style="color:#ff6b35">No disponible ⚠</td><td style="color:#ff6b35">No disponible ⚠</td></tr>
-  <tr><td>Reducción fin de semana</td><td>~52% vs. días laborales</td><td>~60% vs. días laborales</td></tr>
+<table class="dt" style="margin-top:5px">
+<tr><th>Par&#225;metro</th><th style="color:#ffd166">Caso 1 &middot; Sector Educativo</th><th style="color:#9c88ff">Caso 2 &middot; Sector Servicios</th></tr>
+<tr><td>Consumo anual facturado</td><td style="color:#ffd166">258,720 kWh</td><td style="color:#9c88ff">132,720 kWh</td></tr>
+<tr><td>Demanda m&#225;xima</td><td>66.85 kW</td><td>36.38 kW</td></tr>
+<tr><td>% Climatizaci&#243;n</td><td>43.54%</td><td>44.13%</td></tr>
+<tr><td>% Ofim&#225;tica</td><td>31.53%</td><td>24.30%</td></tr>
+<tr><td>Unidades de A/C</td><td>43 uds &middot; 94 tons</td><td>18 uds &middot; 54.5 tons</td></tr>
+<tr><td>Unidades con R-22</td><td style="color:#ff6b35">2 uds &middot; 4 tons &#9888;</td><td style="color:#ff6b35">1 ud &middot; 1.5 tons &#9888;</td></tr>
+<tr><td>Desequilibrio de fases</td><td style="color:#00e676">No significativo &#10003;</td><td style="color:#ff6b35">&gt;40% &mdash; requiere correcci&#243;n &#9888;</td></tr>
+<tr><td>Sistema de transferencia</td><td style="color:#00e676">ITA (Autom&#225;tico) &#10003;</td><td style="color:#ff6b35">ITM (Manual) &mdash; debe modernizarse</td></tr>
+<tr><td>Luminaria</td><td>Mayor&#237;a LED &middot; algunas fluorescentes</td><td style="color:#00e676">100% LED &#10003;</td></tr>
+<tr><td>Diagrama unifilar</td><td style="color:#ff6b35">No disponible &#9888;</td><td style="color:#ff6b35">No disponible &#9888;</td></tr>
 </table>
-<div class="hl" style="margin-top:12px">
-  <p style="font-size:clamp(12.5px,1.3vw,15px);color:rgba(232,240,254,.85)">
-    <strong style="color:#00c4ff">Patrón consistente:</strong> En ambos casos la climatización representa ~44% del consumo total, confirmando que es el <strong>USE dominante</strong> en edificios administrativos tropicales, y el área con mayor potencial de ahorro y retorno de inversión.
-  </p>
+<div class="hl" style="margin-top:11px">
+<p style="font-size:clamp(12px,1.22vw,14.5px);color:rgba(232,240,254,.85)">
+<strong style="color:#00c4ff">Patr&#243;n consistente:</strong> En ambos casos la climatizaci&#243;n representa ~44% del consumo total &mdash; confirmando que es el <strong>USE dominante</strong> en edificios administrativos tropicales, y el &#225;rea con mayor potencial de ahorro y retorno de inversi&#243;n.
+</p>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 19 RECOMENDACIONES TRANSVERSALES -->
+<!-- S19 RECOMENDACIONES TRANSVERSALES -->
 <div class="sl" id="s19">
 <div class="tag">Lecciones de Ambos Casos</div>
 <div class="h1">RECOMENDACIONES TRANSVERSALES</div>
 <div class="aln"></div>
-<div class="g3" style="margin-top:8px">
-  <div class="card">
-    <h3>❄ Climatización</h3>
-    <ul class="ul" style="margin-top:5px">
-      <li style="font-size:12.5px">Sustituir R-22 → <strong>R-32 o R-410A Inverter</strong> (≥22 SEER)</li>
-      <li style="font-size:12.5px">Temperatura de confort: <strong>22°C–24°C</strong></li>
-      <li style="font-size:12.5px">Todos los termostatos: <strong>digitales programables</strong></li>
-      <li style="font-size:12.5px">Apagar A/C fuera del horario laboral</li>
-      <li style="font-size:12.5px">Un solo equipo por cuarto de servidores</li>
-      <li style="font-size:12.5px">Apagar A/C en áreas desocupadas</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>💡 Iluminación y Equipos</h3>
-    <ul class="ul" style="margin-top:5px">
-      <li style="font-size:12.5px">Completar migración a <strong>luminarias LED</strong></li>
-      <li style="font-size:12.5px">Aprovechar luz natural durante el día</li>
-      <li style="font-size:12.5px">Apagar computadoras completas al finalizar</li>
-      <li style="font-size:12.5px">Apagar todos los equipos no utilizados</li>
-      <li style="font-size:12.5px">Inspecciones periódicas del sistema de iluminación</li>
-      <li style="font-size:12.5px">Evitar luminarias activas fuera de horario</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>🏛 Gestión Institucional</h3>
-    <ul class="ul" style="margin-top:5px">
-      <li style="font-size:12.5px">Designar <strong>Gestor Energético</strong> (Decreto 158-23)</li>
-      <li style="font-size:12.5px">Implementar <strong>política energética institucional</strong></li>
-      <li style="font-size:12.5px">Elaborar diagrama unifilar actualizado</li>
-      <li style="font-size:12.5px">Instalar <strong>Power Meter</strong> para monitoreo continuo</li>
-      <li style="font-size:12.5px">Campañas de concienciación al personal</li>
-      <li style="font-size:12.5px">Meta: certificación <strong>ISO 50001</strong></li>
-    </ul>
-  </div>
+<div class="g3" style="margin-top:7px">
+<div class="card">
+<h3>&#10052; Climatizaci&#243;n</h3>
+<ul class="ul" style="margin-top:4px">
+<li style="font-size:12px">Sustituir R-22 &#8594; equipos <strong>Inverter &gt;16 SEER</strong> (Decreto 158-23, Art. 4)</li>
+<li style="font-size:12px">Temperatura exacta: <strong>22&#176;C</strong> durante horas laborales</li>
+<li style="font-size:12px">Termostatos: <strong>digitales programables</strong></li>
+<li style="font-size:12px">Apagar A/C fuera del horario laboral</li>
+<li style="font-size:12px">Un solo equipo por cuarto de servidores</li>
+<li style="font-size:12px">Apagar A/C en &#225;reas desocupadas</li>
+</ul>
 </div>
-<div class="hl" style="margin-top:13px">
-  <p style="font-size:clamp(12px,1.2vw,14.5px);color:rgba(232,240,254,.85)">
-    <strong style="color:#ffd166">R-22 y el Protocolo de Montreal:</strong> La RD está obligada a eliminar el R-22. La <strong>Resolución 0001-2024</strong> (Enmienda de Kigali) regula también los HFCs. Los refrigerantes preferidos: <strong style="color:#00e676">R-32</strong> (mayor ahorro, hasta 65%) y <strong style="color:#00c4ff">R-410A</strong> (ahorro hasta 44%) en unidades tipo Inverter.
-  </p>
+<div class="card">
+<h3>&#128161; Iluminaci&#243;n y Equipos</h3>
+<ul class="ul" style="margin-top:4px">
+<li style="font-size:12px">Completar migraci&#243;n a <strong>luminarias LED</strong> (Art. 4)</li>
+<li style="font-size:12px">Mantener iluminaci&#243;n <strong>300&ndash;1,000 l&#250;menes</strong> (Decreto 158-23)</li>
+<li style="font-size:12px">Aprovechar luz natural durante el d&#237;a</li>
+<li style="font-size:12px">Apagar computadoras completas al finalizar</li>
+<li style="font-size:12px">Apagar equipos el&#233;ctricos no utilizados</li>
+<li style="font-size:12px">Inspecciones peri&#243;dicas del sistema de iluminaci&#243;n</li>
+</ul>
+</div>
+<div class="card">
+<h3>&#127963; Gesti&#243;n Institucional</h3>
+<ul class="ul" style="margin-top:4px">
+<li style="font-size:12px">Designar <strong>Gestor Energ&#233;tico</strong> (Decreto 158-23, Art. 3)</li>
+<li style="font-size:12px">Implementar <strong>pol&#237;tica energ&#233;tica institucional</strong></li>
+<li style="font-size:12px">Elaborar diagrama unifilar actualizado</li>
+<li style="font-size:12px">Instalar <strong>Power Meter</strong> para monitoreo continuo</li>
+<li style="font-size:12px">Campa&#241;as de concienciaci&#243;n al personal</li>
+<li style="font-size:12px">Meta: certificaci&#243;n <strong>ISO 50001</strong></li>
+</ul>
+</div>
+</div>
+<div class="hl" style="margin-top:12px">
+<p style="font-size:clamp(12px,1.2vw,14px);color:rgba(232,240,254,.85)">
+<strong style="color:#ffd166">R-22 y el Protocolo de Montreal:</strong> La RD est&#225; obligada a eliminar el R-22. La <strong>Resoluci&#243;n 0001-2024</strong> (Enmienda de Kigali) regula tambi&#233;n los HFCs. El Decreto 158-23 (Art. 4, punto 5) exige evaluar el reemplazo cuando el equipo usa R-22 o tiene eficiencia &lt; 12 SEER.
+</p>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 20 SOLAR FV -->
+<!-- S20 GESTOR ENERGÉTICO -->
 <div class="sl" id="s20">
-<div class="go gg" style="width:260px;height:260px;right:80px;top:40px"></div>
-<div class="tag">Complemento Estratégico</div>
-<div class="h1">ENERGÍA SOLAR FOTOVOLTAICA</div>
+<div class="tag">Art. 3 &middot; Decreto 158-23</div>
+<div class="h1">EL GESTOR ENERG&#201;TICO</div>
+<div class="aln"></div>
+<div class="g2">
+<div>
+<div class="ib">
+<div class="in" style="font-size:26px;margin-bottom:4px">Gestor Energ&#233;tico</div>
+<div class="it">Obligaci&#243;n para todo consumidor estatal &mdash; Art. 3, Decreto 158-23</div>
+<p>La m&#225;xima autoridad de cada instituci&#243;n debe designar un <strong style="color:#00c4ff">Gestor Energ&#233;tico</strong>. Este debe ser formado a trav&#233;s de un <strong style="color:#00c4ff">programa gubernamental de capacitaci&#243;n</strong> y contar con conocimientos generales de electricidad avalados por una instituci&#243;n de formaci&#243;n t&#233;cnico profesional o de nivel superior.</p>
+</div>
+<div class="card" style="margin-bottom:9px">
+<h3>Obligaciones de Reporte (Art. 3 P&#225;r. IV)</h3>
+<p>Las instituciones deben remitir al organismo rector un informe de pol&#237;ticas implementadas y un <strong>informe trimestral</strong> sobre los resultados en materia de ahorro y eficiencia energ&#233;tica, elaborado por el Gestor Energ&#233;tico.</p>
+</div>
+<div class="hl" style="margin-top:0">
+<p style="font-size:clamp(11.5px,1.15vw,13.5px);color:rgba(232,240,254,.82)">El Gestor Energ&#233;tico est&#225; investido de la <strong style="color:#00c4ff">autoridad necesaria</strong> para analizar y proponer programas a la m&#225;xima autoridad de la instituci&#243;n.</p>
+</div>
+</div>
+<div>
+<div class="h2" style="margin-bottom:9px">Funciones (Art. 3 P&#225;r. V)</div>
+<ul class="ul">
+<li>Realizar un <strong>inventario de equipos</strong> y procesos el&#233;ctricos de la instituci&#243;n</li>
+<li>Identificar los <strong>principales consumidores de energ&#237;a</strong> y proponer medidas de optimizaci&#243;n</li>
+<li>Coordinar y promover la ejecuci&#243;n de <strong>proyectos de eficiencia energ&#233;tica</strong></li>
+<li>Realizar <strong>capacitaciones y sensibilizaci&#243;n</strong> del personal en ahorro energ&#233;tico</li>
+<li>Monitorear los consumos y generar <strong>reportes peri&#243;dicos</strong> para toma de decisiones</li>
+<li>Ser el responsable exclusivo de configurar y ajustar los <strong>termostatos programables</strong></li>
+<li>Supervisar la pol&#237;tica de <strong>apagado de equipos</strong> fuera del horario laboral</li>
+<li>Trabajar hacia la implementaci&#243;n de un <strong>SGEn bajo ISO 50001</strong></li>
+</ul>
+</div>
+</div>
+<div class="bat"></div>
+</div>
+
+<!-- S21 SOLAR FV -->
+<div class="sl" id="s21">
+<div class="go gg" style="width:240px;height:240px;right:80px;top:40px"></div>
+<div class="tag">Art. 9 &middot; Decreto 158-23 &middot; Complemento Estrat&#233;gico</div>
+<div class="h1">ENERG&#205;A SOLAR FOTOVOLTAICA</div>
 <div class="aln" style="background:linear-gradient(90deg,#ffd166,#00e676)"></div>
 <div class="g2" style="align-items:start;margin-top:6px">
-  <div>
-    <p class="body" style="margin-bottom:14px">Las auditorías también identifican el potencial para implementar <strong style="color:#ffd166">sistemas de generación renovable</strong>. El análisis del patrón de consumo es la base para dimensionar un sistema solar fotovoltaico (FV) correctamente.</p>
-    <div class="hl" style="margin-top:0;background:linear-gradient(135deg,rgba(255,209,102,.1),rgba(0,230,118,.05));border-color:rgba(255,209,102,.28)">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#ffd166;margin-bottom:8px">ESTIMACIÓN — CASO 1</div>
-      <table class="dt" style="font-size:12px">
-        <tr><td>Capacidad inversores</td><td style="color:#ffd166"><strong>150 kW</strong></td></tr>
-        <tr><td>Capacidad pico módulos</td><td style="color:#ffd166"><strong>190 kWp</strong></td></tr>
-        <tr><td>Potencia individual por panel</td><td>≥ 550 W</td></tr>
-        <tr><td>Eficiencia módulos (monocristalino)</td><td>≥ 22%</td></tr>
-      </table>
-    </div>
-  </div>
-  <div>
-    <div class="h2" style="margin-bottom:10px">Criterios Técnicos Mínimos</div>
-    <ul class="ul">
-      <li>Inversores: eficiencia <strong>≥ 98%</strong>, garantía mínima 5 años</li>
-      <li>Módulos monocristalinos: garantía de producto <strong>≥ 12 años</strong></li>
-      <li>Garantía de desempeño: <strong>≥ 25 años</strong></li>
-      <li>Puesta a tierra: resistencia <strong>≤ 10 ohm</strong></li>
-      <li>Protecciones eléctricas en corriente continua (DC) y alterna (AC)</li>
-      <li>Montaje resistente a vientos de hasta <strong>240 km/h</strong> (contexto caribeño)</li>
-      <li>Sistema de monitoreo con registro histórico de producción y consumo</li>
-      <li>Sistema híbrido: protocolo <strong>Modbus</strong> para integración de equipos</li>
-    </ul>
-    <div style="margin-top:11px;padding:9px 13px;background:rgba(255,209,102,.07);border-radius:6px;border:1px solid rgba(255,209,102,.18);font-size:12px;color:rgba(232,240,254,.72)">
-      <strong style="color:#ffd166">Importante:</strong> La auditoría provee el análisis de consumo como insumo base. Para la evaluación completa de factibilidad (sombreados, estructura, orientación) se recomienda contratar una empresa especializada en energías renovables.
-    </div>
-  </div>
+<div>
+<p class="body" style="margin-bottom:12px">El <strong style="color:#ffd166">Art. 9 del Decreto 158-23</strong> instruye a las instituciones p&#250;blicas a desarrollar y aplicar un plan para la adquisici&#243;n y utilizaci&#243;n de <strong>paneles solares</strong> en generaci&#243;n fotovoltaica y en calentadores. La auditor&#237;a energ&#233;tica provee el an&#225;lisis de consumo como base para dimensionar correctamente el sistema.</p>
+<div class="hl" style="margin-top:0;background:linear-gradient(135deg,rgba(255,209,102,.1),rgba(0,230,118,.05));border-color:rgba(255,209,102,.28)">
+<div style="font-family:Bebas Neue,sans-serif;font-size:17px;color:#ffd166;margin-bottom:7px">ESTIMACI&#211;N &mdash; CASO 1 (edificio educativo)</div>
+<table class="dt" style="font-size:11.5px">
+<tr><td>Capacidad inversores</td><td style="color:#ffd166"><strong>150 kW</strong></td></tr>
+<tr><td>Capacidad pico m&#243;dulos</td><td style="color:#ffd166"><strong>190 kWp</strong></td></tr>
+<tr><td>Potencia individual por panel</td><td>&#8805; 550 W</td></tr>
+<tr><td>Eficiencia m&#243;dulos (monocristalino)</td><td>&#8805; 22%</td></tr>
+</table>
+</div>
+</div>
+<div>
+<div class="h2" style="margin-bottom:9px">Criterios T&#233;cnicos M&#237;nimos</div>
+<ul class="ul">
+<li>Inversores: eficiencia <strong>&#8805; 98%</strong>, garant&#237;a m&#237;nima 5 a&#241;os</li>
+<li>M&#243;dulos monocristalinos: garant&#237;a de producto <strong>&#8805; 12 a&#241;os</strong></li>
+<li>Garant&#237;a de desempe&#241;o: <strong>&#8805; 25 a&#241;os</strong></li>
+<li>Puesta a tierra: resistencia <strong>&#8804; 10 ohm</strong></li>
+<li>Protecciones el&#233;ctricas en corriente continua (DC) y alterna (AC)</li>
+<li>Montaje resistente a vientos de hasta <strong>240 km/h</strong> (contexto caribe&#241;o)</li>
+<li>Sistema de monitoreo con registro hist&#243;rico de producci&#243;n y consumo</li>
+<li>Sistema h&#237;brido: protocolo <strong>Modbus</strong> para integraci&#243;n de equipos</li>
+</ul>
+<div style="margin-top:10px;padding:8px 12px;background:rgba(255,209,102,.07);border-radius:5px;border:1px solid rgba(255,209,102,.18);font-size:11.5px;color:rgba(232,240,254,.72)">
+El Art. 9 P&#225;r. I permite a las entidades solicitar <strong>asesor&#237;a t&#233;cnica</strong> al organismo rector. Para la evaluaci&#243;n completa de factibilidad (sombreados, estructura, orientaci&#243;n) se recomienda contratar una empresa especializada.
+</div>
+</div>
 </div>
 <div class="bat" style="background:linear-gradient(90deg,transparent,#ffd166,#00e676,transparent)"></div>
 </div>
 
-<!-- SLIDE 21 GESTOR ENERGÉTICO -->
-<div class="sl" id="s21">
-<div class="tag">Recurso Humano Clave</div>
-<div class="h1">EL GESTOR ENERGÉTICO</div>
-<div class="aln"></div>
-<div class="g2">
-  <div>
-    <div class="ib">
-      <div class="in" style="font-size:28px;margin-bottom:4px">Gestor Energético</div>
-      <div class="it">Definición según Decreto 158-23</div>
-      <p>Profesional designado por la institución, responsable de <strong style="color:#00c4ff">liderar, implementar y dar seguimiento</strong> a los procesos orientados a la eficiencia y a la optimización de los recursos energéticos. Su designación es obligatoria para instituciones gubernamentales.</p>
-    </div>
-    <div class="card">
-      <h3>¿Por qué es esencial?</h3>
-      <p>Sin un responsable dedicado, las recomendaciones de la auditoría quedan en el papel. El Gestor Energético es el <strong>puente entre el diagnóstico y la acción</strong>, garantizando que las medidas se implementen, monitoreen y actualicen continuamente.</p>
-    </div>
-  </div>
-  <div>
-    <div class="h2" style="margin-bottom:10px">Funciones Principales</div>
-    <ul class="ul">
-      <li>Realizar un <strong>diagnóstico energético integral</strong> considerando los indicadores (IDEns) y el consumo por equipo</li>
-      <li>Diseñar y proponer medidas de mejora bajo criterios de <strong>factibilidad técnica, económica y normativa</strong></li>
-      <li>Ser el responsable exclusivo de <strong>configurar y ajustar</strong> los termostatos programables</li>
-      <li>Supervisar la <strong>política de apagado</strong> de equipos fuera del horario laboral</li>
-      <li>Coordinar la instalación y lectura de <strong>Power Meters</strong> para monitoreo continuo</li>
-      <li>Liderar <strong>campañas de concienciación</strong> energética al personal</li>
-      <li>Trabajar hacia la implementación de un <strong>SGEn bajo ISO 50001</strong></li>
-      <li>Presentar informes periódicos de desempeño energético a las autoridades</li>
-    </ul>
-  </div>
-</div>
-<div class="bat"></div>
-</div>
-
-<!-- SLIDE 22 CONCLUSIONES -->
+<!-- S22 CONCLUSIONES -->
 <div class="sl" id="s22">
-<div class="go gb" style="width:240px;height:240px;right:40px;top:30px"></div>
-<div class="tag">Cierre de la Sesión</div>
+<div class="go gb" style="width:230px;height:230px;right:40px;top:30px"></div>
+<div class="tag">Cierre de la Sesi&#243;n</div>
 <div class="h1">CONCLUSIONES</div>
 <div class="aln"></div>
 <div class="g2" style="align-items:start">
-  <div>
-    <ul class="ul">
-      <li>La auditoría energética es una <strong style="color:#00c4ff">herramienta diagnóstica esencial</strong> — sin datos precisos no hay estrategias de eficiencia efectivas</li>
-      <li>La <strong style="color:#00c4ff">climatización representa ~44%</strong> del consumo en edificios de oficinas tropicales; es siempre el USE dominante y la primera área a optimizar</li>
-      <li>La norma <strong style="color:#00c4ff">ISO 50001</strong> provee el marco de gestión; la <strong style="color:#00e676">ISO 50002</strong> define cómo ejecutar la auditoría. Ambas son complementarias</li>
-      <li>El <strong style="color:#ffd166">Decreto 158-23</strong> establece la obligatoriedad de la eficiencia energética en instituciones gubernamentales de la RD</li>
-      <li>Reemplazar R-22 por <strong style="color:#00e676">R-32 Inverter</strong> puede generar ahorros de hasta el <strong>65%</strong> en el consumo de las unidades sustituidas</li>
-      <li>El <strong style="color:#00c4ff">Gestor Energético</strong> es el recurso humano que garantiza que los hallazgos se conviertan en acción sostenida</li>
-      <li>Los dos casos reales evidencian que los mismos <strong>patrones de consumo y hallazgos</strong> se repiten en edificios del sector público, lo que facilita la escalabilidad de las soluciones</li>
-      <li>La <strong style="color:#ffd166">energía solar fotovoltaica</strong> complementa la eficiencia, reduciendo la dependencia de la red y los costos a largo plazo</li>
-    </ul>
-  </div>
-  <div>
-    <div class="card" style="border-color:rgba(0,230,118,.28);background:rgba(0,230,118,.05);margin-bottom:11px">
-      <h3 style="color:#00e676">Ruta de Implementación</h3>
-      <div style="display:flex;flex-direction:column;gap:5px;margin-top:6px">
-        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px"><span style="background:#00c4ff;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:'Syne',sans-serif;font-size:10px;flex-shrink:0">INMEDIATO</span> Apagado de equipos, ajuste de termostatos, reducción de temperatura</div>
-        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px"><span style="background:#ffd166;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:'Syne',sans-serif;font-size:10px;flex-shrink:0">CORTO PLAZO</span> Termostatos programables, sustitución R-22, diagrama unifilar</div>
-        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px"><span style="background:#9c88ff;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:'Syne',sans-serif;font-size:10px;flex-shrink:0">MEDIANO PLAZO</span> Política energética, Power Meter, sistema solar FV</div>
-        <div style="display:flex;align-items:center;gap:9px;font-size:12.5px"><span style="background:#00e676;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:'Syne',sans-serif;font-size:10px;flex-shrink:0">LARGO PLAZO</span> Certificación ISO 50001, SGEn completo</div>
-      </div>
-    </div>
-    <div class="hl" style="margin-top:0">
-      <p style="font-size:clamp(12px,1.2vw,14px);color:rgba(232,240,254,.82)"><strong style="color:#00c4ff">"La eficiencia energética no es un gasto, es una inversión con retorno medible."</strong> Los datos de ambos casos demuestran que existen oportunidades reales de ahorro en cada institución pública del país.</p>
-    </div>
-  </div>
+<div>
+<ul class="ul">
+<li>La auditor&#237;a energ&#233;tica es una <strong style="color:#00c4ff">herramienta diagn&#243;stica esencial</strong> &mdash; sin datos precisos no hay estrategias de eficiencia efectivas</li>
+<li>La <strong style="color:#00c4ff">climatizaci&#243;n representa ~44%</strong> del consumo en oficinas tropicales; es siempre el USE dominante y la primera &#225;rea a optimizar</li>
+<li><strong style="color:#00c4ff">ISO 50001</strong> provee el marco de gesti&#243;n; <strong style="color:#00e676">ISO 50002</strong> define c&#243;mo ejecutar la auditor&#237;a. Ambas son complementarias</li>
+<li>El <strong style="color:#ffd166">Decreto 158-23</strong> establece obligaciones concretas: 22&#176;C, &gt;16 SEER, LED, Gestor Energ&#233;tico, energ&#237;a solar</li>
+<li>Reemplazar R-22 por <strong style="color:#00e676">R-32 Inverter</strong> genera ahorros de hasta el <strong>65%</strong> en las unidades sustituidas</li>
+<li>El <strong style="color:#00c4ff">Gestor Energ&#233;tico</strong> es el recurso humano que garantiza que los hallazgos se conviertan en acci&#243;n sostenida</li>
+<li>Ambos casos evidencian <strong>patrones de consumo repetibles</strong>, facilitando la escalabilidad de las soluciones</li>
+</ul>
+</div>
+<div>
+<div class="card" style="border-color:rgba(0,230,118,.28);background:rgba(0,230,118,.05);margin-bottom:10px">
+<h3 style="color:#00e676">Ruta de Implementaci&#243;n</h3>
+<div style="display:flex;flex-direction:column;gap:5px;margin-top:6px">
+<div style="display:flex;align-items:center;gap:8px;font-size:12px"><span style="background:#00c4ff;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:Syne,sans-serif;font-size:9.5px;flex-shrink:0">INMEDIATO</span>Apagado de equipos, ajuste de termostatos a 22&#176;C</div>
+<div style="display:flex;align-items:center;gap:8px;font-size:12px"><span style="background:#ffd166;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:Syne,sans-serif;font-size:9.5px;flex-shrink:0">CORTO</span>Termostatos programables, sustituci&#243;n R-22, diagrama unifilar</div>
+<div style="display:flex;align-items:center;gap:8px;font-size:12px"><span style="background:#9c88ff;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:Syne,sans-serif;font-size:9.5px;flex-shrink:0">MEDIANO</span>Pol&#237;tica energ&#233;tica, Power Meter, sistema solar FV</div>
+<div style="display:flex;align-items:center;gap:8px;font-size:12px"><span style="background:#00e676;color:#070c18;border-radius:3px;padding:2px 7px;font-weight:700;font-family:Syne,sans-serif;font-size:9.5px;flex-shrink:0">LARGO</span>Certificaci&#243;n ISO 50001, SGEn completo</div>
+</div>
+</div>
+<div class="hl" style="margin-top:0">
+<p style="font-size:clamp(11.5px,1.15vw,13.5px);color:rgba(232,240,254,.82)"><strong style="color:#00c4ff">"La eficiencia energ&#233;tica no es un gasto, es una inversi&#243;n con retorno medible."</strong><br>Los datos de ambos casos reales demuestran que existen oportunidades de ahorro significativas en cada instituci&#243;n p&#250;blica.</p>
+</div>
+</div>
 </div>
 <div class="bat"></div>
 </div>
 
-<!-- SLIDE 23 Q&A -->
+<!-- S23 Q&A -->
 <div class="sl" id="s23" style="justify-content:center;align-items:center;text-align:center;background:radial-gradient(ellipse at center,rgba(0,196,255,.14) 0%,transparent 60%)">
-<div class="go gb" style="width:300px;height:300px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
-<div class="tag" style="text-align:center">Fin de la Presentación</div>
-<div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,100px);line-height:.87;color:#fff;margin-bottom:18px">PREGUNTAS<br><span style="color:#00c4ff">Y RESPUESTAS</span></div>
-<div class="aln" style="margin:0 auto 22px"></div>
-<p style="font-size:clamp(14px,1.6vw,18px);color:rgba(232,240,254,.55);max-width:520px;line-height:1.65;margin:0 auto 32px">Gracias por su atención. El conocimiento sobre auditorías energéticas es el primer paso para transformar el desempeño energético de las instituciones públicas de la República Dominicana.</p>
-<div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap">
-  <div style="background:rgba(0,196,255,.08);border:1px solid rgba(0,196,255,.22);border-radius:8px;padding:14px 22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#00e676">ISO 50001</div><div style="font-size:11px;color:rgba(232,240,254,.4);font-family:'Syne',sans-serif">Gestión Energética</div></div>
-  <div style="background:rgba(0,196,255,.08);border:1px solid rgba(0,196,255,.22);border-radius:8px;padding:14px 22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#00c4ff">ISO 50002</div><div style="font-size:11px;color:rgba(232,240,254,.4);font-family:'Syne',sans-serif">Auditorías Energéticas</div></div>
-  <div style="background:rgba(0,196,255,.08);border:1px solid rgba(0,196,255,.22);border-radius:8px;padding:14px 22px"><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#ffd166">Decreto 158-23</div><div style="font-size:11px;color:rgba(232,240,254,.4);font-family:'Syne',sans-serif">Marco Legal RD</div></div>
+<div class="go gb" style="width:280px;height:280px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+<div class="tag" style="text-align:center">Fin de la Presentaci&#243;n</div>
+<div style="font-family:Bebas Neue,sans-serif;font-size:clamp(48px,7.5vw,96px);line-height:.87;color:#fff;margin-bottom:16px">PREGUNTAS<br><span style="color:#00c4ff">Y RESPUESTAS</span></div>
+<div class="aln" style="margin:0 auto 20px"></div>
+<p style="font-size:clamp(13.5px,1.55vw,17px);color:rgba(232,240,254,.55);max-width:500px;line-height:1.65;margin:0 auto 28px">Gracias por su atenci&#243;n. El conocimiento sobre auditor&#237;as energ&#233;ticas es el primer paso para transformar el desempe&#241;o energ&#233;tico de las instituciones p&#250;blicas.</p>
+<div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap">
+<div style="background:rgba(0,196,255,.08);border:1px solid rgba(0,196,255,.22);border-radius:8px;padding:13px 20px"><div style="font-family:Bebas Neue,sans-serif;font-size:21px;color:#00e676">ISO 50001</div><div style="font-size:10.5px;color:rgba(232,240,254,.4);font-family:Syne,sans-serif">Gesti&#243;n Energ&#233;tica</div></div>
+<div style="background:rgba(0,196,255,.08);border:1px solid rgba(0,196,255,.22);border-radius:8px;padding:13px 20px"><div style="font-family:Bebas Neue,sans-serif;font-size:21px;color:#00c4ff">ISO 50002</div><div style="font-size:10.5px;color:rgba(232,240,254,.4);font-family:Syne,sans-serif">Auditor&#237;as Energ&#233;ticas</div></div>
+<div style="background:rgba(0,196,255,.08);border:1px solid rgba(0,196,255,.22);border-radius:8px;padding:13px 20px"><div style="font-family:Bebas Neue,sans-serif;font-size:21px;color:#ffd166">Decreto 158-23</div><div style="font-size:10.5px;color:rgba(232,240,254,.4);font-family:Syne,sans-serif">Marco Legal RD</div></div>
 </div>
 <div class="bat"></div>
 </div>
 
-</div><!-- end #sw -->
-
+</div>
 <script>
 const TOTAL=23;
 let cur=0;
-const slides=document.querySelectorAll('.sl');
-const pb=document.getElementById('pb');
-const sc=document.getElementById('sc');
-const kh=document.getElementById('kh');
-
+const slides=document.querySelectorAll(".sl");
+const pb=document.getElementById("pb");
+const sc=document.getElementById("sc");
+const kh=document.getElementById("kh");
 function go(n){
-  if(n<0||n>=TOTAL)return;
-  slides[cur].classList.remove('ac');
-  slides[cur].classList.add('pv');
-  setTimeout(()=>slides[cur].classList.remove('pv'),480);
-  cur=n;
-  slides[cur].classList.add('ac');
-  pb.style.width=((cur+1)/TOTAL*100)+'%';
-  sc.textContent=String(cur+1).padStart(2,'0')+' / '+String(TOTAL).padStart(2,'0');
+if(n<0||n>=TOTAL)return;
+slides[cur].classList.remove("ac");
+slides[cur].classList.add("pv");
+setTimeout(()=>slides[cur].classList.remove("pv"),480);
+cur=n;
+slides[cur].classList.add("ac");
+pb.style.width=((cur+1)/TOTAL*100)+"%";
+sc.textContent=String(cur+1).padStart(2,"0")+" / "+String(TOTAL).padStart(2,"0");
 }
 function cs(d){go(cur+d);}
-document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')go(cur+1);
-  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(cur-1);
-  if(e.key==='Home')go(0);
-  if(e.key==='End')go(TOTAL-1);
+document.addEventListener("keydown",e=>{
+if(e.key==="ArrowRight"||e.key==="ArrowDown"||e.key===" ")go(cur+1);
+if(e.key==="ArrowLeft"||e.key==="ArrowUp")go(cur-1);
+if(e.key==="Home")go(0);
+if(e.key==="End")go(TOTAL-1);
 });
-setTimeout(()=>{kh.style.opacity='0';},5000);
+setTimeout(()=>{kh.style.opacity="0";},5000);
 </script>
 </body>
 </html>
